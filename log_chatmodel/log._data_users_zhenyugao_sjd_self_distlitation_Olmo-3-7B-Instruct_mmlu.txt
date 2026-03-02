@@ -1,0 +1,786 @@
+2026-02-10:14:30:01 INFO     [config.evaluate_config:301] Using default fewshot_as_multiturn=True.
+2026-02-10:14:30:35 INFO     [_cli.run:376] Selected Tasks: ['mmlu']
+2026-02-10:14:30:36 INFO     [evaluator:210] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2026-02-10:14:30:36 WARNING  [evaluator:222] generation_kwargs: {'until': '[<|endoftext|>]'} specified through cli, these settings will update set parameters in yaml tasks. Ensure 'do_sample=True' for non-greedy decoding!
+2026-02-10:14:30:36 INFO     [evaluator:235] Initializing vllm model, with arguments: {'pretrained': '/data/users/zhenyugao/sjd/self_distlitation/Olmo-3-7B-Instruct', 'tensor_parallel_size': 2, 'dtype': 'auto', 'gpu_memory_utilization': 0.9, 'data_parallel_size': 1, 'trust_remote_code': True}
+INFO 02-10 14:30:41 [utils.py:263] non-default args: {'trust_remote_code': True, 'seed': 1234, 'tensor_parallel_size': 2, 'disable_log_stats': True, 'model': '/data/users/zhenyugao/sjd/self_distlitation/Olmo-3-7B-Instruct'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-10 14:30:41 [model.py:530] Resolved architecture: Olmo2ForCausalLM
+INFO 02-10 14:30:41 [model.py:1545] Using max model len 65536
+INFO 02-10 14:30:41 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=16384.
+INFO 02-10 14:30:41 [vllm.py:630] Asynchronous scheduling is enabled.
+INFO 02-10 14:30:41 [vllm.py:637] Disabling NCCL for DP synchronization when using async scheduling.
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:30:41 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/data/users/zhenyugao/sjd/self_distlitation/Olmo-3-7B-Instruct', speculative_config=None, tokenizer='/data/users/zhenyugao/sjd/self_distlitation/Olmo-3-7B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=65536, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=1234, served_model_name=/data/users/zhenyugao/sjd/self_distlitation/Olmo-3-7B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m WARNING 02-10 14:30:41 [multiproc_executor.py:880] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:30:46 [parallel_state.py:1214] world_size=2 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:37531 backend=nccl
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:30:46 [parallel_state.py:1214] world_size=2 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:37531 backend=nccl
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:30:46 [pynccl.py:111] vLLM is using nccl==2.27.5
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m WARNING 02-10 14:30:46 [symm_mem.py:107] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m WARNING 02-10 14:30:46 [symm_mem.py:107] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:30:46 [parallel_state.py:1425] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:30:46 [parallel_state.py:1425] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank N/A
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:30:47 [gpu_model_runner.py:3808] Starting to load model /data/users/zhenyugao/sjd/self_distlitation/Olmo-3-7B-Instruct...
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:30:47 [cuda.py:351] Using FLASH_ATTN attention backend out of potential backends: ('FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION')
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:05<00:11,  5.77s/it]
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:11<00:05,  5.48s/it]
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:16<00:00,  5.65s/it]
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:16<00:00,  5.64s/it]
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m 
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:05 [default_loader.py:291] Loading weights took 16.94 seconds
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:05 [gpu_model_runner.py:3905] Model loading took 6.86 GiB memory and 17.226970 seconds
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:15 [backends.py:644] Using cache directory: /home/users/zhenyugao/.cache/vllm/torch_compile_cache/d7ec8cd868/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:15 [backends.py:704] Dynamo bytecode transform time: 9.26 s
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:18 [backends.py:226] Directly load the compiled graph(s) for compile range (1, 16384) from the cache, took 1.018 s
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:18 [monitor.py:34] torch.compile takes 10.28 s in total
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP1 pid=1520725)[0;0m INFO 02-10 14:31:18 [backends.py:226] Directly load the compiled graph(s) for compile range (1, 16384) from the cache, took 6.079 s
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:19 [gpu_worker.py:358] Available KV cache memory: 114.94 GiB
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:31:19 [kv_cache_utils.py:1305] GPU KV cache size: 470,784 tokens
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:31:19 [kv_cache_utils.py:1310] Maximum concurrency for 65,536 tokens per request: 14.83x
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:00<00:01, 28.58it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▎        | 7/51 [00:00<00:01, 29.71it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|█▉        | 10/51 [00:00<00:01, 29.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:00<00:01, 29.80it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:00<00:01, 28.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:00<00:01, 28.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:00<00:00, 28.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 26/51 [00:00<00:00, 27.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:00, 26.56it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 26.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:01<00:00, 26.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 38/51 [00:01<00:00, 25.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 41/51 [00:01<00:00, 25.35it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:01<00:00, 25.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:01<00:00, 25.17it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 50/51 [00:01<00:00, 25.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 26.87it/s]
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 3/51 [00:00<00:01, 27.79it/s]Capturing CUDA graphs (decode, FULL):  12%|█▏        | 6/51 [00:00<00:01, 28.81it/s]Capturing CUDA graphs (decode, FULL):  20%|█▉        | 10/51 [00:00<00:01, 30.01it/s]Capturing CUDA graphs (decode, FULL):  27%|██▋       | 14/51 [00:00<00:01, 31.24it/s]Capturing CUDA graphs (decode, FULL):  35%|███▌      | 18/51 [00:00<00:01, 23.27it/s]Capturing CUDA graphs (decode, FULL):  41%|████      | 21/51 [00:01<00:02, 13.17it/s]Capturing CUDA graphs (decode, FULL):  49%|████▉     | 25/51 [00:01<00:01, 16.86it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 29/51 [00:01<00:01, 20.22it/s]Capturing CUDA graphs (decode, FULL):  65%|██████▍   | 33/51 [00:01<00:00, 23.29it/s]Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 37/51 [00:01<00:00, 25.65it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 41/51 [00:01<00:00, 27.79it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 45/51 [00:01<00:00, 29.11it/s]Capturing CUDA graphs (decode, FULL):  96%|█████████▌| 49/51 [00:02<00:00, 30.62it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:02<00:00, 24.76it/s]
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP1 pid=1520725)[0;0m INFO 02-10 14:31:24 [custom_all_reduce.py:216] Registering 6630 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:24 [custom_all_reduce.py:216] Registering 6630 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m [0;36m(Worker_TP0 pid=1520723)[0;0m INFO 02-10 14:31:24 [gpu_model_runner.py:4856] Graph capturing finished in 5 secs, took 1.44 GiB
+[0;36m(EngineCore_DP0 pid=1520717)[0;0m INFO 02-10 14:31:24 [core.py:273] init engine (profile, create kv cache, warmup model) took 18.88 seconds
+INFO 02-10 14:31:26 [llm.py:347] Supported tasks: ['generate']
+2026-02-10:14:33:01 INFO     [tasks:700] Selected tasks:
+2026-02-10:14:33:01 INFO     [tasks:703] Group: mmlu
+2026-02-10:14:33:01 INFO     [tasks:710]   Subgroup: mmlu_stem
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_abstract_algebra (mmlu/default/mmlu_abstract_algebra.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_anatomy (mmlu/default/mmlu_anatomy.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_astronomy (mmlu/default/mmlu_astronomy.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_college_biology (mmlu/default/mmlu_college_biology.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_college_chemistry (mmlu/default/mmlu_college_chemistry.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_college_computer_science (mmlu/default/mmlu_college_computer_science.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_college_mathematics (mmlu/default/mmlu_college_mathematics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_college_physics (mmlu/default/mmlu_college_physics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_computer_security (mmlu/default/mmlu_computer_security.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_conceptual_physics (mmlu/default/mmlu_conceptual_physics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_electrical_engineering (mmlu/default/mmlu_electrical_engineering.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_elementary_mathematics (mmlu/default/mmlu_elementary_mathematics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_biology (mmlu/default/mmlu_high_school_biology.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_chemistry (mmlu/default/mmlu_high_school_chemistry.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_computer_science (mmlu/default/mmlu_high_school_computer_science.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_mathematics (mmlu/default/mmlu_high_school_mathematics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_physics (mmlu/default/mmlu_high_school_physics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_statistics (mmlu/default/mmlu_high_school_statistics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_machine_learning (mmlu/default/mmlu_machine_learning.yaml)
+2026-02-10:14:33:01 INFO     [tasks:710]   Subgroup: mmlu_other
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_business_ethics (mmlu/default/mmlu_business_ethics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_clinical_knowledge (mmlu/default/mmlu_clinical_knowledge.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_college_medicine (mmlu/default/mmlu_college_medicine.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_global_facts (mmlu/default/mmlu_global_facts.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_human_aging (mmlu/default/mmlu_human_aging.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_management (mmlu/default/mmlu_management.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_marketing (mmlu/default/mmlu_marketing.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_medical_genetics (mmlu/default/mmlu_medical_genetics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_miscellaneous (mmlu/default/mmlu_miscellaneous.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_nutrition (mmlu/default/mmlu_nutrition.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_professional_accounting (mmlu/default/mmlu_professional_accounting.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_professional_medicine (mmlu/default/mmlu_professional_medicine.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_virology (mmlu/default/mmlu_virology.yaml)
+2026-02-10:14:33:01 INFO     [tasks:710]   Subgroup: mmlu_social_sciences
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_econometrics (mmlu/default/mmlu_econometrics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_geography (mmlu/default/mmlu_high_school_geography.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_government_and_politics (mmlu/default/mmlu_high_school_government_and_politics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_macroeconomics (mmlu/default/mmlu_high_school_macroeconomics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_microeconomics (mmlu/default/mmlu_high_school_microeconomics.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_psychology (mmlu/default/mmlu_high_school_psychology.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_human_sexuality (mmlu/default/mmlu_human_sexuality.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_professional_psychology (mmlu/default/mmlu_professional_psychology.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_public_relations (mmlu/default/mmlu_public_relations.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_security_studies (mmlu/default/mmlu_security_studies.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_sociology (mmlu/default/mmlu_sociology.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_us_foreign_policy (mmlu/default/mmlu_us_foreign_policy.yaml)
+2026-02-10:14:33:01 INFO     [tasks:710]   Subgroup: mmlu_humanities
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_formal_logic (mmlu/default/mmlu_formal_logic.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_european_history (mmlu/default/mmlu_high_school_european_history.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_us_history (mmlu/default/mmlu_high_school_us_history.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_high_school_world_history (mmlu/default/mmlu_high_school_world_history.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_international_law (mmlu/default/mmlu_international_law.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_jurisprudence (mmlu/default/mmlu_jurisprudence.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_logical_fallacies (mmlu/default/mmlu_logical_fallacies.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_moral_disputes (mmlu/default/mmlu_moral_disputes.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_moral_scenarios (mmlu/default/mmlu_moral_scenarios.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_philosophy (mmlu/default/mmlu_philosophy.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_prehistory (mmlu/default/mmlu_prehistory.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_professional_law (mmlu/default/mmlu_professional_law.yaml)
+2026-02-10:14:33:01 INFO     [tasks:691]     Task: mmlu_world_religions (mmlu/default/mmlu_world_religions.yaml)
+2026-02-10:14:33:01 WARNING  [evaluator:489] Chat template formatting change affects loglikelihood and multiple-choice tasks. See docs/chat-template-readme.md for details.
+2026-02-10:14:33:01 INFO     [api.task:310] Building contexts for mmlu_abstract_algebra on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1254.18it/s]
+2026-02-10:14:33:01 INFO     [api.task:310] Building contexts for mmlu_anatomy on rank 0...
+  0%|          | 0/135 [00:00<?, ?it/s]100%|██████████| 135/135 [00:00<00:00, 1542.86it/s]
+2026-02-10:14:33:01 INFO     [api.task:310] Building contexts for mmlu_astronomy on rank 0...
+  0%|          | 0/152 [00:00<?, ?it/s]100%|██████████| 152/152 [00:00<00:00, 1548.78it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_college_biology on rank 0...
+  0%|          | 0/144 [00:00<?, ?it/s]100%|██████████| 144/144 [00:00<00:00, 1551.42it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_college_chemistry on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1562.08it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_college_computer_science on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1584.75it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_college_mathematics on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1569.77it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_college_physics on rank 0...
+  0%|          | 0/102 [00:00<?, ?it/s]100%|██████████| 102/102 [00:00<00:00, 1552.58it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_computer_security on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1574.34it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_conceptual_physics on rank 0...
+  0%|          | 0/235 [00:00<?, ?it/s] 68%|██████▊   | 159/235 [00:00<00:00, 1589.24it/s]100%|██████████| 235/235 [00:00<00:00, 1562.77it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_electrical_engineering on rank 0...
+  0%|          | 0/145 [00:00<?, ?it/s]100%|██████████| 145/145 [00:00<00:00, 1564.28it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_elementary_mathematics on rank 0...
+  0%|          | 0/378 [00:00<?, ?it/s] 42%|████▏     | 157/378 [00:00<00:00, 1567.87it/s] 83%|████████▎ | 314/378 [00:00<00:00, 1566.03it/s]100%|██████████| 378/378 [00:00<00:00, 1567.83it/s]
+2026-02-10:14:33:02 INFO     [api.task:310] Building contexts for mmlu_high_school_biology on rank 0...
+  0%|          | 0/310 [00:00<?, ?it/s] 51%|█████     | 157/310 [00:00<00:00, 1566.90it/s]100%|██████████| 310/310 [00:00<00:00, 1574.25it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_high_school_chemistry on rank 0...
+  0%|          | 0/203 [00:00<?, ?it/s] 78%|███████▊  | 158/203 [00:00<00:00, 1575.78it/s]100%|██████████| 203/203 [00:00<00:00, 1576.20it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_high_school_computer_science on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1554.91it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_high_school_mathematics on rank 0...
+  0%|          | 0/270 [00:00<?, ?it/s] 58%|█████▊    | 157/270 [00:00<00:00, 1568.01it/s]100%|██████████| 270/270 [00:00<00:00, 1576.73it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_high_school_physics on rank 0...
+  0%|          | 0/151 [00:00<?, ?it/s]100%|██████████| 151/151 [00:00<00:00, 1570.23it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_high_school_statistics on rank 0...
+  0%|          | 0/216 [00:00<?, ?it/s] 73%|███████▎  | 158/216 [00:00<00:00, 1578.49it/s]100%|██████████| 216/216 [00:00<00:00, 1573.62it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_machine_learning on rank 0...
+  0%|          | 0/112 [00:00<?, ?it/s]100%|██████████| 112/112 [00:00<00:00, 1572.66it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_business_ethics on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1562.30it/s]
+2026-02-10:14:33:03 INFO     [api.task:310] Building contexts for mmlu_clinical_knowledge on rank 0...
+  0%|          | 0/265 [00:00<?, ?it/s] 59%|█████▉    | 157/265 [00:00<00:00, 1569.46it/s]100%|██████████| 265/265 [00:00<00:00, 1572.81it/s]
+2026-02-10:14:33:04 INFO     [api.task:310] Building contexts for mmlu_college_medicine on rank 0...
+  0%|          | 0/173 [00:00<?, ?it/s] 91%|█████████▏| 158/173 [00:00<00:00, 1573.42it/s]100%|██████████| 173/173 [00:00<00:00, 1572.71it/s]
+2026-02-10:14:33:04 INFO     [api.task:310] Building contexts for mmlu_global_facts on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1509.44it/s]
+2026-02-10:14:33:04 INFO     [api.task:310] Building contexts for mmlu_human_aging on rank 0...
+  0%|          | 0/223 [00:00<?, ?it/s] 71%|███████   | 158/223 [00:00<00:00, 1573.82it/s]100%|██████████| 223/223 [00:00<00:00, 537.93it/s] 
+2026-02-10:14:33:04 INFO     [api.task:310] Building contexts for mmlu_management on rank 0...
+  0%|          | 0/103 [00:00<?, ?it/s]100%|██████████| 103/103 [00:00<00:00, 1529.05it/s]
+2026-02-10:14:33:04 INFO     [api.task:310] Building contexts for mmlu_marketing on rank 0...
+  0%|          | 0/234 [00:00<?, ?it/s] 67%|██████▋   | 156/234 [00:00<00:00, 1556.94it/s]100%|██████████| 234/234 [00:00<00:00, 1568.37it/s]
+2026-02-10:14:33:04 INFO     [api.task:310] Building contexts for mmlu_medical_genetics on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1585.72it/s]
+2026-02-10:14:33:04 INFO     [api.task:310] Building contexts for mmlu_miscellaneous on rank 0...
+  0%|          | 0/783 [00:00<?, ?it/s] 20%|██        | 159/783 [00:00<00:00, 1587.39it/s] 41%|████      | 318/783 [00:00<00:00, 1579.18it/s] 61%|██████    | 476/783 [00:00<00:00, 1578.52it/s] 81%|████████  | 635/783 [00:00<00:00, 1579.44it/s]100%|██████████| 783/783 [00:00<00:00, 1578.62it/s]
+2026-02-10:14:33:05 INFO     [api.task:310] Building contexts for mmlu_nutrition on rank 0...
+  0%|          | 0/306 [00:00<?, ?it/s] 52%|█████▏    | 158/306 [00:00<00:00, 1570.65it/s]100%|██████████| 306/306 [00:00<00:00, 1571.89it/s]
+2026-02-10:14:33:05 INFO     [api.task:310] Building contexts for mmlu_professional_accounting on rank 0...
+  0%|          | 0/282 [00:00<?, ?it/s] 56%|█████▌    | 157/282 [00:00<00:00, 1568.45it/s]100%|██████████| 282/282 [00:00<00:00, 1565.31it/s]
+2026-02-10:14:33:05 INFO     [api.task:310] Building contexts for mmlu_professional_medicine on rank 0...
+  0%|          | 0/272 [00:00<?, ?it/s] 58%|█████▊    | 157/272 [00:00<00:00, 1561.78it/s]100%|██████████| 272/272 [00:00<00:00, 1573.38it/s]
+2026-02-10:14:33:06 INFO     [api.task:310] Building contexts for mmlu_virology on rank 0...
+  0%|          | 0/166 [00:00<?, ?it/s] 95%|█████████▍| 157/166 [00:00<00:00, 1568.08it/s]100%|██████████| 166/166 [00:00<00:00, 1566.85it/s]
+2026-02-10:14:33:06 INFO     [api.task:310] Building contexts for mmlu_econometrics on rank 0...
+  0%|          | 0/114 [00:00<?, ?it/s]100%|██████████| 114/114 [00:00<00:00, 1567.18it/s]
+2026-02-10:14:33:06 INFO     [api.task:310] Building contexts for mmlu_high_school_geography on rank 0...
+  0%|          | 0/198 [00:00<?, ?it/s] 80%|███████▉  | 158/198 [00:00<00:00, 1575.00it/s]100%|██████████| 198/198 [00:00<00:00, 1570.04it/s]
+2026-02-10:14:33:06 INFO     [api.task:310] Building contexts for mmlu_high_school_government_and_politics on rank 0...
+  0%|          | 0/193 [00:00<?, ?it/s] 81%|████████▏ | 157/193 [00:00<00:00, 1566.46it/s]100%|██████████| 193/193 [00:00<00:00, 1565.90it/s]
+2026-02-10:14:33:06 INFO     [api.task:310] Building contexts for mmlu_high_school_macroeconomics on rank 0...
+  0%|          | 0/390 [00:00<?, ?it/s] 41%|████      | 158/390 [00:00<00:00, 1577.48it/s] 81%|████████▏ | 317/390 [00:00<00:00, 1584.02it/s]100%|██████████| 390/390 [00:00<00:00, 1584.89it/s]
+2026-02-10:14:33:06 INFO     [api.task:310] Building contexts for mmlu_high_school_microeconomics on rank 0...
+  0%|          | 0/238 [00:00<?, ?it/s] 67%|██████▋   | 159/238 [00:00<00:00, 1583.61it/s]100%|██████████| 238/238 [00:00<00:00, 1585.41it/s]
+2026-02-10:14:33:06 INFO     [api.task:310] Building contexts for mmlu_high_school_psychology on rank 0...
+  0%|          | 0/545 [00:00<?, ?it/s] 29%|██▉       | 160/545 [00:00<00:00, 1598.37it/s] 59%|█████▉    | 322/545 [00:00<00:00, 1606.02it/s] 89%|████████▊ | 483/545 [00:00<00:00, 1597.93it/s]100%|██████████| 545/545 [00:00<00:00, 1596.02it/s]
+2026-02-10:14:33:07 INFO     [api.task:310] Building contexts for mmlu_human_sexuality on rank 0...
+  0%|          | 0/131 [00:00<?, ?it/s]100%|██████████| 131/131 [00:00<00:00, 1568.69it/s]
+2026-02-10:14:33:07 INFO     [api.task:310] Building contexts for mmlu_professional_psychology on rank 0...
+  0%|          | 0/612 [00:00<?, ?it/s] 26%|██▌       | 158/612 [00:00<00:00, 1577.73it/s] 52%|█████▏    | 316/612 [00:00<00:00, 1568.08it/s] 77%|███████▋  | 473/612 [00:00<00:00, 1568.37it/s]100%|██████████| 612/612 [00:00<00:00, 1569.57it/s]
+2026-02-10:14:33:07 INFO     [api.task:310] Building contexts for mmlu_public_relations on rank 0...
+  0%|          | 0/110 [00:00<?, ?it/s]100%|██████████| 110/110 [00:00<00:00, 1576.84it/s]
+2026-02-10:14:33:07 INFO     [api.task:310] Building contexts for mmlu_security_studies on rank 0...
+  0%|          | 0/245 [00:00<?, ?it/s] 64%|██████▍   | 157/245 [00:00<00:00, 1567.23it/s]100%|██████████| 245/245 [00:00<00:00, 1572.23it/s]
+2026-02-10:14:33:07 INFO     [api.task:310] Building contexts for mmlu_sociology on rank 0...
+  0%|          | 0/201 [00:00<?, ?it/s] 79%|███████▊  | 158/201 [00:00<00:00, 1572.71it/s]100%|██████████| 201/201 [00:00<00:00, 1568.05it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_us_foreign_policy on rank 0...
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 1578.74it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_formal_logic on rank 0...
+  0%|          | 0/126 [00:00<?, ?it/s]100%|██████████| 126/126 [00:00<00:00, 1569.72it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_high_school_european_history on rank 0...
+  0%|          | 0/165 [00:00<?, ?it/s] 96%|█████████▌| 158/165 [00:00<00:00, 1570.97it/s]100%|██████████| 165/165 [00:00<00:00, 1570.47it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_high_school_us_history on rank 0...
+  0%|          | 0/204 [00:00<?, ?it/s] 77%|███████▋  | 158/204 [00:00<00:00, 1572.98it/s]100%|██████████| 204/204 [00:00<00:00, 1572.86it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_high_school_world_history on rank 0...
+  0%|          | 0/237 [00:00<?, ?it/s] 66%|██████▌   | 156/237 [00:00<00:00, 1558.79it/s]100%|██████████| 237/237 [00:00<00:00, 1559.74it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_international_law on rank 0...
+  0%|          | 0/121 [00:00<?, ?it/s]100%|██████████| 121/121 [00:00<00:00, 1569.24it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_jurisprudence on rank 0...
+  0%|          | 0/108 [00:00<?, ?it/s]100%|██████████| 108/108 [00:00<00:00, 1573.18it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_logical_fallacies on rank 0...
+  0%|          | 0/163 [00:00<?, ?it/s] 96%|█████████▋| 157/163 [00:00<00:00, 1561.78it/s]100%|██████████| 163/163 [00:00<00:00, 1561.44it/s]
+2026-02-10:14:33:08 INFO     [api.task:310] Building contexts for mmlu_moral_disputes on rank 0...
+  0%|          | 0/346 [00:00<?, ?it/s] 45%|████▌     | 157/346 [00:00<00:00, 1566.86it/s] 91%|█████████ | 315/346 [00:00<00:00, 1574.21it/s]100%|██████████| 346/346 [00:00<00:00, 1572.16it/s]
+2026-02-10:14:33:09 INFO     [api.task:310] Building contexts for mmlu_moral_scenarios on rank 0...
+  0%|          | 0/895 [00:00<?, ?it/s] 18%|█▊        | 158/895 [00:00<00:00, 1573.70it/s] 35%|███▌      | 316/895 [00:00<00:00, 1569.24it/s] 53%|█████▎    | 474/895 [00:00<00:00, 1570.01it/s] 71%|███████   | 633/895 [00:00<00:00, 1575.33it/s] 88%|████████▊ | 791/895 [00:00<00:00, 1568.46it/s]100%|██████████| 895/895 [00:00<00:00, 1570.00it/s]
+2026-02-10:14:33:09 INFO     [api.task:310] Building contexts for mmlu_philosophy on rank 0...
+  0%|          | 0/311 [00:00<?, ?it/s] 50%|█████     | 157/311 [00:00<00:00, 1565.65it/s]100%|██████████| 311/311 [00:00<00:00, 1568.09it/s]
+2026-02-10:14:33:09 INFO     [api.task:310] Building contexts for mmlu_prehistory on rank 0...
+  0%|          | 0/324 [00:00<?, ?it/s] 49%|████▉     | 158/324 [00:00<00:00, 1570.56it/s] 98%|█████████▊| 316/324 [00:00<00:00, 1574.12it/s]100%|██████████| 324/324 [00:00<00:00, 1572.71it/s]
+2026-02-10:14:33:10 INFO     [api.task:310] Building contexts for mmlu_professional_law on rank 0...
+  0%|          | 0/1534 [00:00<?, ?it/s] 10%|█         | 156/1534 [00:00<00:00, 1552.94it/s] 20%|██        | 314/1534 [00:00<00:00, 1563.30it/s] 31%|███       | 471/1534 [00:00<00:00, 1563.60it/s] 41%|████      | 629/1534 [00:00<00:00, 1566.97it/s] 51%|█████     | 786/1534 [00:00<00:00, 1564.12it/s] 61%|██████▏   | 943/1534 [00:00<00:00, 1562.34it/s] 72%|███████▏  | 1101/1534 [00:00<00:00, 1566.02it/s] 82%|████████▏ | 1258/1534 [00:00<00:00, 1565.97it/s] 92%|█████████▏| 1415/1534 [00:00<00:00, 1566.32it/s]100%|██████████| 1534/1534 [00:00<00:00, 1565.12it/s]
+2026-02-10:14:33:11 INFO     [api.task:310] Building contexts for mmlu_world_religions on rank 0...
+  0%|          | 0/171 [00:00<?, ?it/s] 92%|█████████▏| 158/171 [00:00<00:00, 1578.44it/s]100%|██████████| 171/171 [00:00<00:00, 1576.88it/s]
+2026-02-10:14:33:11 INFO     [evaluator:583] Running loglikelihood requests
+Running loglikelihood requests:   0%|          | 0/56168 [00:00<?, ?it/s]
+Adding requests:   0%|          | 0/56168 [00:00<?, ?it/s][A
+Adding requests:   3%|▎         | 1668/56168 [00:00<00:03, 16671.03it/s][A
+Adding requests:   6%|▌         | 3454/56168 [00:00<00:03, 17367.63it/s][A
+Adding requests:   9%|▉         | 5264/56168 [00:00<00:02, 17701.00it/s][A
+Adding requests:  13%|█▎        | 7090/56168 [00:00<00:02, 17918.54it/s][A
+Adding requests:  16%|█▌        | 8938/56168 [00:00<00:02, 18117.59it/s][A
+Adding requests:  19%|█▉        | 10833/56168 [00:00<00:02, 18397.44it/s][A
+Adding requests:  23%|██▎       | 12687/56168 [00:00<00:02, 18442.85it/s][A
+Adding requests:  26%|██▌       | 14545/56168 [00:00<00:02, 18484.85it/s][A
+Adding requests:  29%|██▉       | 16432/56168 [00:00<00:02, 18603.44it/s][A
+Adding requests:  33%|███▎      | 18328/56168 [00:01<00:02, 18712.77it/s][A
+Adding requests:  36%|███▌      | 20200/56168 [00:01<00:05, 6647.57it/s] [A
+Adding requests:  39%|███▉      | 22070/56168 [00:01<00:04, 8266.92it/s][A
+Adding requests:  43%|████▎     | 23962/56168 [00:01<00:03, 9982.30it/s][A
+Adding requests:  46%|████▌     | 25859/56168 [00:01<00:02, 11662.55it/s][A
+Adding requests:  49%|████▉     | 27769/56168 [00:02<00:02, 13229.85it/s][A
+Adding requests:  53%|█████▎    | 29677/56168 [00:02<00:01, 14583.93it/s][A
+Adding requests:  56%|█████▌    | 31573/56168 [00:02<00:01, 15669.48it/s][A
+Adding requests:  60%|█████▉    | 33461/56168 [00:02<00:01, 16509.95it/s][A
+Adding requests:  63%|██████▎   | 35392/56168 [00:02<00:01, 17271.57it/s][A
+Adding requests:  66%|██████▋   | 37306/56168 [00:02<00:01, 17793.88it/s][A
+Adding requests:  70%|██████▉   | 39222/56168 [00:02<00:00, 18182.62it/s][A
+Adding requests:  73%|███████▎  | 41137/56168 [00:02<00:00, 18462.90it/s][A
+Adding requests:  77%|███████▋  | 43042/56168 [00:02<00:00, 18634.55it/s][A
+Adding requests:  80%|████████  | 44945/56168 [00:02<00:00, 18609.87it/s][A
+Adding requests:  83%|████████▎ | 46850/56168 [00:03<00:00, 18739.06it/s][A
+Adding requests:  87%|████████▋ | 48744/56168 [00:03<00:00, 18797.85it/s][A
+Adding requests:  90%|█████████ | 50641/56168 [00:03<00:00, 18848.41it/s][A
+Adding requests:  94%|█████████▎| 52540/56168 [00:03<00:00, 18889.63it/s][A
+Adding requests:  97%|█████████▋| 54442/56168 [00:03<00:00, 18927.82it/s][AAdding requests: 100%|██████████| 56168/56168 [00:03<00:00, 15655.94it/s]
+
+Processed prompts:   0%|          | 0/56168 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   0%|          | 3/56168 [00:00<3:45:45,  4.15it/s, est. speed input: 4175.52 toks/s, output: 4.15 toks/s][A
+Processed prompts:   0%|          | 114/56168 [00:00<06:09, 151.62it/s, est. speed input: 87382.11 toks/s, output: 118.38 toks/s][A
+Processed prompts:   0%|          | 142/56168 [00:01<06:27, 144.56it/s, est. speed input: 85790.78 toks/s, output: 120.11 toks/s][A
+Processed prompts:   0%|          | 168/56168 [00:02<13:16, 70.34it/s, est. speed input: 55692.78 toks/s, output: 80.02 toks/s]  [A
+Processed prompts:   0%|          | 254/56168 [00:02<07:41, 121.14it/s, est. speed input: 69674.43 toks/s, output: 106.38 toks/s][A
+Processed prompts:   1%|          | 313/56168 [00:03<08:26, 110.36it/s, est. speed input: 66120.84 toks/s, output: 103.96 toks/s][A
+Processed prompts:   1%|          | 343/56168 [00:03<08:12, 113.32it/s, est. speed input: 66308.98 toks/s, output: 105.62 toks/s][A
+Processed prompts:   1%|          | 374/56168 [00:03<09:32, 97.47it/s, est. speed input: 62430.73 toks/s, output: 100.69 toks/s] [A
+Processed prompts:   1%|          | 405/56168 [00:04<10:41, 86.95it/s, est. speed input: 59259.05 toks/s, output: 96.71 toks/s] [A
+Processed prompts:   1%|          | 436/56168 [00:04<11:31, 80.58it/s, est. speed input: 56805.82 toks/s, output: 93.72 toks/s][A
+Processed prompts:   1%|          | 468/56168 [00:06<19:20, 48.00it/s, est. speed input: 46651.09 toks/s, output: 77.76 toks/s][A
+Processed prompts:   1%|          | 533/56168 [00:06<11:44, 78.93it/s, est. speed input: 50717.79 toks/s, output: 86.18 toks/s][A
+Processed prompts:   1%|          | 566/56168 [00:06<11:32, 80.24it/s, est. speed input: 50207.46 toks/s, output: 86.09 toks/s][A
+Processed prompts:   1%|          | 599/56168 [00:06<11:36, 79.73it/s, est. speed input: 49502.24 toks/s, output: 85.62 toks/s][A
+Processed prompts:   1%|          | 633/56168 [00:07<12:39, 73.11it/s, est. speed input: 47975.99 toks/s, output: 83.70 toks/s][A
+Processed prompts:   1%|          | 667/56168 [00:08<12:48, 72.22it/s, est. speed input: 47108.71 toks/s, output: 82.88 toks/s][A
+Processed prompts:   1%|          | 701/56168 [00:08<12:01, 76.91it/s, est. speed input: 46952.36 toks/s, output: 83.26 toks/s][A
+Processed prompts:   1%|▏         | 736/56168 [00:09<13:10, 70.14it/s, est. speed input: 45651.34 toks/s, output: 81.58 toks/s][A
+Processed prompts:   1%|▏         | 771/56168 [00:09<13:02, 70.84it/s, est. speed input: 45062.65 toks/s, output: 81.12 toks/s][A
+Processed prompts:   1%|▏         | 806/56168 [00:09<11:34, 79.77it/s, est. speed input: 45304.14 toks/s, output: 82.13 toks/s][A
+Processed prompts:   1%|▏         | 842/56168 [00:10<11:42, 78.75it/s, est. speed input: 44844.82 toks/s, output: 81.88 toks/s][A
+Processed prompts:   2%|▏         | 878/56168 [00:11<18:53, 48.79it/s, est. speed input: 40940.70 toks/s, output: 75.26 toks/s][A
+Processed prompts:   2%|▏         | 950/56168 [00:11<11:33, 79.66it/s, est. speed input: 42825.18 toks/s, output: 79.76 toks/s][A
+Processed prompts:   2%|▏         | 987/56168 [00:12<11:29, 80.03it/s, est. speed input: 42577.50 toks/s, output: 79.82 toks/s][A
+Processed prompts:   2%|▏         | 1024/56168 [00:12<10:19, 89.00it/s, est. speed input: 42894.54 toks/s, output: 80.93 toks/s][A
+Processed prompts:   2%|▏         | 1062/56168 [00:13<11:03, 83.01it/s, est. speed input: 42404.36 toks/s, output: 80.51 toks/s][A
+Processed prompts:   2%|▏         | 1100/56168 [00:13<10:42, 85.76it/s, est. speed input: 42344.79 toks/s, output: 80.90 toks/s][A
+Processed prompts:   2%|▏         | 1138/56168 [00:14<10:51, 84.43it/s, est. speed input: 42097.58 toks/s, output: 80.92 toks/s][A
+Processed prompts:   2%|▏         | 1177/56168 [00:14<11:05, 82.66it/s, est. speed input: 41804.12 toks/s, output: 80.84 toks/s][A
+Processed prompts:   2%|▏         | 1215/56168 [00:15<11:18, 81.05it/s, est. speed input: 41503.99 toks/s, output: 80.73 toks/s][A
+Processed prompts:   2%|▏         | 1255/56168 [00:15<11:58, 76.46it/s, est. speed input: 41007.26 toks/s, output: 80.24 toks/s][A
+Processed prompts:   2%|▏         | 1294/56168 [00:15<10:49, 84.52it/s, est. speed input: 41129.40 toks/s, output: 80.94 toks/s][A
+Processed prompts:   2%|▏         | 1334/56168 [00:16<11:34, 78.98it/s, est. speed input: 40683.50 toks/s, output: 80.51 toks/s][A
+Processed prompts:   2%|▏         | 1373/56168 [00:16<10:46, 84.81it/s, est. speed input: 40719.36 toks/s, output: 81.01 toks/s][A
+Processed prompts:   3%|▎         | 1413/56168 [00:18<17:42, 51.54it/s, est. speed input: 38351.05 toks/s, output: 76.70 toks/s][A
+Processed prompts:   3%|▎         | 1494/56168 [00:18<10:27, 87.09it/s, est. speed input: 39700.02 toks/s, output: 80.22 toks/s][A
+Processed prompts:   3%|▎         | 1535/56168 [00:18<09:17, 97.94it/s, est. speed input: 40009.80 toks/s, output: 81.27 toks/s][A
+Processed prompts:   3%|▎         | 1577/56168 [00:19<09:08, 99.44it/s, est. speed input: 40033.02 toks/s, output: 81.74 toks/s][A
+Processed prompts:   3%|▎         | 1618/56168 [00:19<10:08, 89.58it/s, est. speed input: 39680.02 toks/s, output: 81.43 toks/s][A
+Processed prompts:   3%|▎         | 1660/56168 [00:20<09:35, 94.71it/s, est. speed input: 39746.38 toks/s, output: 81.97 toks/s][A
+Processed prompts:   3%|▎         | 1703/56168 [00:20<09:41, 93.73it/s, est. speed input: 39650.15 toks/s, output: 82.19 toks/s][A
+Processed prompts:   3%|▎         | 1745/56168 [00:21<10:24, 87.12it/s, est. speed input: 39358.15 toks/s, output: 81.98 toks/s][A
+Processed prompts:   3%|▎         | 1788/56168 [00:21<09:45, 92.82it/s, est. speed input: 39405.70 toks/s, output: 82.48 toks/s][A
+Processed prompts:   3%|▎         | 1831/56168 [00:22<09:57, 90.93it/s, est. speed input: 39263.98 toks/s, output: 82.58 toks/s][A
+Processed prompts:   3%|▎         | 1874/56168 [00:22<10:06, 89.52it/s, est. speed input: 39120.92 toks/s, output: 82.66 toks/s][A
+Processed prompts:   3%|▎         | 1917/56168 [00:23<10:00, 90.39it/s, est. speed input: 39036.34 toks/s, output: 82.86 toks/s][A
+Processed prompts:   3%|▎         | 1961/56168 [00:23<10:49, 83.50it/s, est. speed input: 38713.99 toks/s, output: 82.55 toks/s][A
+Processed prompts:   4%|▎         | 2005/56168 [00:24<09:37, 93.86it/s, est. speed input: 38856.96 toks/s, output: 83.23 toks/s][A
+Processed prompts:   4%|▎         | 2049/56168 [00:24<10:21, 87.15it/s, est. speed input: 38591.05 toks/s, output: 83.03 toks/s][A
+Processed prompts:   4%|▎         | 2094/56168 [00:25<09:27, 95.23it/s, est. speed input: 38676.94 toks/s, output: 83.59 toks/s][A
+Processed prompts:   4%|▍         | 2139/56168 [00:25<09:53, 91.04it/s, est. speed input: 38498.91 toks/s, output: 83.57 toks/s][A
+Processed prompts:   4%|▍         | 2184/56168 [00:27<16:19, 55.10it/s, est. speed input: 36894.01 toks/s, output: 80.43 toks/s][A
+Processed prompts:   4%|▍         | 2229/56168 [00:27<12:48, 70.23it/s, est. speed input: 37173.93 toks/s, output: 81.39 toks/s][A
+Processed prompts:   4%|▍         | 2320/56168 [00:27<07:42, 116.55it/s, est. speed input: 38107.74 toks/s, output: 84.12 toks/s][A
+Processed prompts:   4%|▍         | 2365/56168 [00:27<07:37, 117.48it/s, est. speed input: 38176.55 toks/s, output: 84.61 toks/s][A
+Processed prompts:   4%|▍         | 2411/56168 [00:28<07:56, 112.85it/s, est. speed input: 38148.79 toks/s, output: 84.88 toks/s][A
+Processed prompts:   4%|▍         | 2457/56168 [00:28<08:23, 106.72it/s, est. speed input: 38064.90 toks/s, output: 85.03 toks/s][A
+Processed prompts:   4%|▍         | 2503/56168 [00:29<08:39, 103.25it/s, est. speed input: 37994.92 toks/s, output: 85.20 toks/s][A
+Processed prompts:   5%|▍         | 2550/56168 [00:29<08:40, 102.95it/s, est. speed input: 37964.86 toks/s, output: 85.46 toks/s][A
+Processed prompts:   5%|▍         | 2596/56168 [00:30<08:58, 99.54it/s, est. speed input: 37872.08 toks/s, output: 85.57 toks/s] [A
+Processed prompts:   5%|▍         | 2643/56168 [00:30<08:51, 100.70it/s, est. speed input: 37846.54 toks/s, output: 85.83 toks/s][A
+Processed prompts:   5%|▍         | 2690/56168 [00:31<08:58, 99.23it/s, est. speed input: 37775.92 toks/s, output: 85.99 toks/s] [A
+Processed prompts:   5%|▍         | 2738/56168 [00:31<09:24, 94.73it/s, est. speed input: 37633.69 toks/s, output: 85.99 toks/s][A
+Processed prompts:   5%|▍         | 2785/56168 [00:32<08:46, 101.38it/s, est. speed input: 37684.62 toks/s, output: 86.41 toks/s][A
+Processed prompts:   5%|▌         | 2833/56168 [00:32<08:53, 100.05it/s, est. speed input: 37618.98 toks/s, output: 86.58 toks/s][A
+Processed prompts:   5%|▌         | 2881/56168 [00:33<08:45, 101.35it/s, est. speed input: 37592.99 toks/s, output: 86.82 toks/s][A
+Processed prompts:   5%|▌         | 2929/56168 [00:34<11:21, 78.12it/s, est. speed input: 37036.25 toks/s, output: 85.84 toks/s] [A
+Processed prompts:   5%|▌         | 2977/56168 [00:34<08:41, 102.09it/s, est. speed input: 37366.07 toks/s, output: 86.90 toks/s][A
+Processed prompts:   5%|▌         | 3026/56168 [00:34<08:07, 108.97it/s, est. speed input: 37433.01 toks/s, output: 87.36 toks/s][A
+Processed prompts:   5%|▌         | 3074/56168 [00:35<08:20, 106.08it/s, est. speed input: 37379.17 toks/s, output: 87.53 toks/s][A
+Processed prompts:   6%|▌         | 3123/56168 [00:35<08:20, 105.98it/s, est. speed input: 37352.82 toks/s, output: 87.77 toks/s][A
+Processed prompts:   6%|▌         | 3173/56168 [00:36<08:31, 103.57it/s, est. speed input: 37288.83 toks/s, output: 87.92 toks/s][A
+Processed prompts:   6%|▌         | 3222/56168 [00:37<15:34, 56.66it/s, est. speed input: 35968.39 toks/s, output: 85.09 toks/s] [A
+Processed prompts:   6%|▌         | 3371/56168 [00:37<07:07, 123.56it/s, est. speed input: 37150.29 toks/s, output: 88.75 toks/s][A
+Processed prompts:   6%|▌         | 3422/56168 [00:38<07:21, 119.56it/s, est. speed input: 37123.40 toks/s, output: 88.98 toks/s][A
+Processed prompts:   6%|▌         | 3472/56168 [00:38<07:37, 115.14it/s, est. speed input: 37076.57 toks/s, output: 89.15 toks/s][A
+Processed prompts:   6%|▋         | 3523/56168 [00:39<07:46, 112.90it/s, est. speed input: 37045.01 toks/s, output: 89.36 toks/s][A
+Processed prompts:   6%|▋         | 3574/56168 [00:39<07:49, 111.96it/s, est. speed input: 37023.02 toks/s, output: 89.60 toks/s][A
+Processed prompts:   6%|▋         | 3625/56168 [00:40<07:56, 110.18it/s, est. speed input: 36984.41 toks/s, output: 89.79 toks/s][A
+Processed prompts:   7%|▋         | 3677/56168 [00:40<07:59, 109.56it/s, est. speed input: 36953.05 toks/s, output: 90.01 toks/s][A
+Processed prompts:   7%|▋         | 3728/56168 [00:41<08:03, 108.45it/s, est. speed input: 36911.41 toks/s, output: 90.19 toks/s][A
+Processed prompts:   7%|▋         | 3780/56168 [00:41<08:10, 106.83it/s, est. speed input: 36857.83 toks/s, output: 90.35 toks/s][A
+Processed prompts:   7%|▋         | 3833/56168 [00:42<07:59, 109.26it/s, est. speed input: 36850.44 toks/s, output: 90.62 toks/s][A
+Processed prompts:   7%|▋         | 3885/56168 [00:42<08:01, 108.65it/s, est. speed input: 36811.74 toks/s, output: 90.81 toks/s][A
+Processed prompts:   7%|▋         | 3938/56168 [00:43<08:00, 108.81it/s, est. speed input: 36778.71 toks/s, output: 91.01 toks/s][A
+Processed prompts:   7%|▋         | 3991/56168 [00:43<08:03, 107.86it/s, est. speed input: 36731.24 toks/s, output: 91.18 toks/s][A
+Processed prompts:   7%|▋         | 4044/56168 [00:44<08:01, 108.28it/s, est. speed input: 36696.76 toks/s, output: 91.38 toks/s][A
+Processed prompts:   7%|▋         | 4098/56168 [00:44<07:51, 110.48it/s, est. speed input: 36683.38 toks/s, output: 91.63 toks/s][A
+Processed prompts:   7%|▋         | 4152/56168 [00:45<07:54, 109.57it/s, est. speed input: 36639.58 toks/s, output: 91.81 toks/s][A
+Processed prompts:   7%|▋         | 4206/56168 [00:45<07:51, 110.20it/s, est. speed input: 36609.76 toks/s, output: 92.02 toks/s][A
+Processed prompts:   8%|▊         | 4260/56168 [00:46<07:49, 110.61it/s, est. speed input: 36578.59 toks/s, output: 92.23 toks/s][A
+Processed prompts:   8%|▊         | 4315/56168 [00:46<07:39, 112.89it/s, est. speed input: 36568.66 toks/s, output: 92.49 toks/s][A
+Processed prompts:   8%|▊         | 4370/56168 [00:47<07:43, 111.83it/s, est. speed input: 36527.90 toks/s, output: 92.67 toks/s][A
+Processed prompts:   8%|▊         | 4425/56168 [00:47<07:34, 113.74it/s, est. speed input: 36515.48 toks/s, output: 92.92 toks/s][A
+Processed prompts:   8%|▊         | 4480/56168 [00:48<07:39, 112.54it/s, est. speed input: 36474.95 toks/s, output: 93.09 toks/s][A
+Processed prompts:   8%|▊         | 4535/56168 [00:48<07:37, 112.86it/s, est. speed input: 36446.10 toks/s, output: 93.30 toks/s][A
+Processed prompts:   8%|▊         | 4591/56168 [00:49<07:33, 113.70it/s, est. speed input: 36422.50 toks/s, output: 93.52 toks/s][A
+Processed prompts:   8%|▊         | 4647/56168 [00:49<09:19, 92.08it/s, est. speed input: 36113.78 toks/s, output: 93.00 toks/s] [A
+Processed prompts:   8%|▊         | 4703/56168 [00:51<14:38, 58.57it/s, est. speed input: 35201.55 toks/s, output: 90.92 toks/s][A
+Processed prompts:   9%|▉         | 4930/56168 [00:52<06:28, 131.73it/s, est. speed input: 36124.33 toks/s, output: 94.41 toks/s][A
+Processed prompts:   9%|▉         | 4987/56168 [00:52<06:43, 126.70it/s, est. speed input: 36072.47 toks/s, output: 94.55 toks/s][A
+Processed prompts:   9%|▉         | 5045/56168 [00:53<06:44, 126.37it/s, est. speed input: 36066.75 toks/s, output: 94.82 toks/s][A
+Processed prompts:   9%|▉         | 5103/56168 [00:53<06:33, 129.85it/s, est. speed input: 36098.40 toks/s, output: 95.18 toks/s][A
+Processed prompts:   9%|▉         | 5162/56168 [00:54<06:35, 128.93it/s, est. speed input: 36092.32 toks/s, output: 95.45 toks/s][A
+Processed prompts:   9%|▉         | 5221/56168 [00:54<06:04, 139.71it/s, est. speed input: 36179.11 toks/s, output: 95.97 toks/s][A
+Processed prompts:   9%|▉         | 5280/56168 [00:54<06:20, 133.91it/s, est. speed input: 36154.87 toks/s, output: 96.19 toks/s][A
+Processed prompts:  10%|▉         | 5339/56168 [00:55<06:30, 130.19it/s, est. speed input: 36131.88 toks/s, output: 96.41 toks/s][A
+Processed prompts:  10%|▉         | 5399/56168 [00:55<06:36, 127.98it/s, est. speed input: 36111.08 toks/s, output: 96.64 toks/s][A
+Processed prompts:  10%|▉         | 5459/56168 [00:56<06:40, 126.47it/s, est. speed input: 36089.71 toks/s, output: 96.87 toks/s][A
+Processed prompts:  10%|▉         | 5519/56168 [00:56<06:44, 125.19it/s, est. speed input: 36065.26 toks/s, output: 97.09 toks/s][A
+Processed prompts:  10%|▉         | 5580/56168 [00:57<06:48, 123.83it/s, est. speed input: 36035.34 toks/s, output: 97.30 toks/s][A
+Processed prompts:  10%|█         | 5640/56168 [00:57<06:46, 124.43it/s, est. speed input: 36017.78 toks/s, output: 97.53 toks/s][A
+Processed prompts:  10%|█         | 5702/56168 [00:58<06:45, 124.31it/s, est. speed input: 35993.50 toks/s, output: 97.76 toks/s][A
+Processed prompts:  10%|█         | 5763/56168 [00:58<06:44, 124.49it/s, est. speed input: 35970.81 toks/s, output: 97.98 toks/s][A
+Processed prompts:  10%|█         | 5825/56168 [00:59<06:41, 125.31it/s, est. speed input: 35952.22 toks/s, output: 98.22 toks/s][A
+Processed prompts:  10%|█         | 5887/56168 [00:59<06:39, 125.74it/s, est. speed input: 35931.42 toks/s, output: 98.46 toks/s][A
+Processed prompts:  11%|█         | 5950/56168 [01:00<06:35, 126.97it/s, est. speed input: 35916.31 toks/s, output: 98.71 toks/s][A
+Processed prompts:  11%|█         | 6012/56168 [01:00<06:30, 128.32it/s, est. speed input: 35904.16 toks/s, output: 98.97 toks/s][A
+Processed prompts:  11%|█         | 6075/56168 [01:01<06:34, 126.86it/s, est. speed input: 35873.00 toks/s, output: 99.17 toks/s][A
+Processed prompts:  11%|█         | 6139/56168 [01:01<06:26, 129.58it/s, est. speed input: 35868.26 toks/s, output: 99.45 toks/s][A
+Processed prompts:  11%|█         | 6202/56168 [01:02<06:25, 129.55it/s, est. speed input: 35848.62 toks/s, output: 99.69 toks/s][A
+Processed prompts:  11%|█         | 6266/56168 [01:02<06:28, 128.45it/s, est. speed input: 35820.00 toks/s, output: 99.90 toks/s][A
+Processed prompts:  11%|█▏        | 6330/56168 [01:03<06:20, 131.02it/s, est. speed input: 35814.54 toks/s, output: 100.18 toks/s][A
+Processed prompts:  11%|█▏        | 6395/56168 [01:03<06:17, 131.70it/s, est. speed input: 35800.16 toks/s, output: 100.43 toks/s][A
+Processed prompts:  11%|█▏        | 6459/56168 [01:04<06:22, 129.93it/s, est. speed input: 35769.72 toks/s, output: 100.63 toks/s][A
+Processed prompts:  12%|█▏        | 6524/56168 [01:04<06:14, 132.54it/s, est. speed input: 35765.00 toks/s, output: 100.91 toks/s][A
+Processed prompts:  12%|█▏        | 6589/56168 [01:05<06:13, 132.85it/s, est. speed input: 35748.90 toks/s, output: 101.15 toks/s][A
+Processed prompts:  12%|█▏        | 6655/56168 [01:05<06:15, 132.01it/s, est. speed input: 35724.48 toks/s, output: 101.38 toks/s][A
+Processed prompts:  12%|█▏        | 6720/56168 [01:07<12:54, 63.81it/s, est. speed input: 34781.42 toks/s, output: 98.98 toks/s]  [A
+Processed prompts:  12%|█▏        | 6986/56168 [01:08<05:02, 162.77it/s, est. speed input: 35647.65 toks/s, output: 102.61 toks/s][A
+Processed prompts:  13%|█▎        | 7053/56168 [01:08<05:12, 157.07it/s, est. speed input: 35629.72 toks/s, output: 102.85 toks/s][A
+Processed prompts:  13%|█▎        | 7121/56168 [01:09<05:20, 152.83it/s, est. speed input: 35615.67 toks/s, output: 103.11 toks/s][A
+Processed prompts:  13%|█▎        | 7189/56168 [01:09<05:28, 149.29it/s, est. speed input: 35600.11 toks/s, output: 103.36 toks/s][A
+Processed prompts:  13%|█▎        | 7258/56168 [01:10<05:32, 147.16it/s, est. speed input: 35587.56 toks/s, output: 103.62 toks/s][A
+Processed prompts:  13%|█▎        | 7326/56168 [01:10<05:37, 144.78it/s, est. speed input: 35569.31 toks/s, output: 103.87 toks/s][A
+Processed prompts:  13%|█▎        | 7396/56168 [01:11<05:37, 144.31it/s, est. speed input: 35557.38 toks/s, output: 104.14 toks/s][A
+Processed prompts:  13%|█▎        | 7466/56168 [01:11<05:39, 143.57it/s, est. speed input: 35541.54 toks/s, output: 104.40 toks/s][A
+Processed prompts:  13%|█▎        | 7536/56168 [01:12<05:39, 143.40it/s, est. speed input: 35526.82 toks/s, output: 104.66 toks/s][A
+Processed prompts:  14%|█▎        | 7606/56168 [01:12<05:43, 141.24it/s, est. speed input: 35499.20 toks/s, output: 104.88 toks/s][A
+Processed prompts:  14%|█▎        | 7677/56168 [01:12<05:38, 143.43it/s, est. speed input: 35491.84 toks/s, output: 105.17 toks/s][A
+Processed prompts:  14%|█▍        | 7749/56168 [01:13<05:37, 143.63it/s, est. speed input: 35475.36 toks/s, output: 105.44 toks/s][A
+Processed prompts:  14%|█▍        | 7821/56168 [01:14<05:37, 143.06it/s, est. speed input: 35453.58 toks/s, output: 105.69 toks/s][A
+Processed prompts:  14%|█▍        | 7893/56168 [01:14<05:31, 145.70it/s, est. speed input: 35447.42 toks/s, output: 105.98 toks/s][A
+Processed prompts:  14%|█▍        | 7966/56168 [01:14<05:33, 144.50it/s, est. speed input: 35423.39 toks/s, output: 106.23 toks/s][A
+Processed prompts:  14%|█▍        | 8039/56168 [01:15<05:31, 145.29it/s, est. speed input: 35406.71 toks/s, output: 106.50 toks/s][A
+Processed prompts:  14%|█▍        | 8113/56168 [01:15<05:27, 146.66it/s, est. speed input: 35393.10 toks/s, output: 106.78 toks/s][A
+Processed prompts:  15%|█▍        | 8187/56168 [01:16<05:21, 149.03it/s, est. speed input: 35385.71 toks/s, output: 107.08 toks/s][A
+Processed prompts:  15%|█▍        | 8261/56168 [01:16<05:21, 148.97it/s, est. speed input: 35368.43 toks/s, output: 107.35 toks/s][A
+Processed prompts:  15%|█▍        | 8336/56168 [01:17<05:23, 147.95it/s, est. speed input: 35344.97 toks/s, output: 107.60 toks/s][A
+Processed prompts:  15%|█▍        | 8412/56168 [01:17<05:18, 149.72it/s, est. speed input: 35332.32 toks/s, output: 107.90 toks/s][A
+Processed prompts:  15%|█▌        | 8488/56168 [01:18<05:13, 152.23it/s, est. speed input: 35324.64 toks/s, output: 108.20 toks/s][A
+Processed prompts:  15%|█▌        | 8565/56168 [01:18<05:14, 151.31it/s, est. speed input: 35302.58 toks/s, output: 108.47 toks/s][A
+Processed prompts:  15%|█▌        | 8642/56168 [01:19<05:08, 153.84it/s, est. speed input: 35294.50 toks/s, output: 108.78 toks/s][A
+Processed prompts:  16%|█▌        | 8719/56168 [01:19<05:12, 151.89it/s, est. speed input: 35266.90 toks/s, output: 109.04 toks/s][A
+Processed prompts:  16%|█▌        | 8798/56168 [01:20<05:07, 154.00it/s, est. speed input: 35254.63 toks/s, output: 109.35 toks/s][A
+Processed prompts:  16%|█▌        | 8877/56168 [01:20<05:01, 156.67it/s, est. speed input: 35246.53 toks/s, output: 109.67 toks/s][A
+Processed prompts:  16%|█▌        | 8956/56168 [01:21<05:00, 157.04it/s, est. speed input: 35230.46 toks/s, output: 109.96 toks/s][A
+Processed prompts:  16%|█▌        | 9036/56168 [01:21<05:01, 156.19it/s, est. speed input: 35208.23 toks/s, output: 110.24 toks/s][A
+Processed prompts:  16%|█▌        | 9116/56168 [01:22<04:59, 157.28it/s, est. speed input: 35192.08 toks/s, output: 110.55 toks/s][A
+Processed prompts:  16%|█▋        | 9197/56168 [01:22<04:56, 158.59it/s, est. speed input: 35176.80 toks/s, output: 110.85 toks/s][A
+Processed prompts:  17%|█▋        | 9279/56168 [01:23<04:49, 161.99it/s, est. speed input: 35170.66 toks/s, output: 111.20 toks/s][A
+Processed prompts:  17%|█▋        | 9361/56168 [01:23<04:52, 160.22it/s, est. speed input: 35145.34 toks/s, output: 111.48 toks/s][A
+Processed prompts:  17%|█▋        | 9444/56168 [01:24<04:48, 161.97it/s, est. speed input: 35131.42 toks/s, output: 111.80 toks/s][A
+Processed prompts:  17%|█▋        | 9528/56168 [01:24<04:42, 165.20it/s, est. speed input: 35124.58 toks/s, output: 112.15 toks/s][A
+Processed prompts:  17%|█▋        | 9612/56168 [01:25<04:43, 163.97it/s, est. speed input: 35102.20 toks/s, output: 112.45 toks/s][A
+Processed prompts:  17%|█▋        | 9696/56168 [01:25<04:38, 166.63it/s, est. speed input: 35093.18 toks/s, output: 112.79 toks/s][A
+Processed prompts:  17%|█▋        | 9782/56168 [01:26<04:39, 166.09it/s, est. speed input: 35072.25 toks/s, output: 113.11 toks/s][A
+Processed prompts:  18%|█▊        | 9868/56168 [01:29<10:15, 75.27it/s, est. speed input: 34245.78 toks/s, output: 110.81 toks/s] [A
+Processed prompts:  18%|█▊        | 10218/56168 [01:29<03:49, 200.55it/s, est. speed input: 34938.99 toks/s, output: 114.61 toks/s][A
+Processed prompts:  18%|█▊        | 10325/56168 [01:29<03:31, 216.44it/s, est. speed input: 35020.03 toks/s, output: 115.35 toks/s][A
+Processed prompts:  19%|█▊        | 10409/56168 [01:30<03:44, 203.80it/s, est. speed input: 34991.30 toks/s, output: 115.63 toks/s][A
+Processed prompts:  19%|█▊        | 10487/56168 [01:30<03:59, 190.88it/s, est. speed input: 34951.06 toks/s, output: 115.84 toks/s][A
+Processed prompts:  19%|█▉        | 10579/56168 [01:31<04:02, 188.38it/s, est. speed input: 34937.93 toks/s, output: 116.21 toks/s][A
+Processed prompts:  19%|█▉        | 10671/56168 [01:31<04:03, 186.57it/s, est. speed input: 34923.49 toks/s, output: 116.57 toks/s][A
+Processed prompts:  19%|█▉        | 10764/56168 [01:32<04:05, 184.64it/s, est. speed input: 34905.88 toks/s, output: 116.92 toks/s][A
+Processed prompts:  19%|█▉        | 10857/56168 [01:32<04:05, 184.93it/s, est. speed input: 34893.45 toks/s, output: 117.30 toks/s][A
+Processed prompts:  19%|█▉        | 10951/56168 [01:33<04:00, 187.69it/s, est. speed input: 34888.74 toks/s, output: 117.70 toks/s][A
+Processed prompts:  20%|█▉        | 11045/56168 [01:34<05:07, 146.91it/s, est. speed input: 34700.88 toks/s, output: 117.48 toks/s][A
+Processed prompts:  20%|█▉        | 11141/56168 [01:34<04:42, 159.44it/s, est. speed input: 34698.32 toks/s, output: 117.90 toks/s][A
+Processed prompts:  20%|██        | 11237/56168 [01:35<04:28, 167.45it/s, est. speed input: 34685.55 toks/s, output: 118.28 toks/s][A
+Processed prompts:  20%|██        | 11333/56168 [01:35<04:20, 172.44it/s, est. speed input: 34667.82 toks/s, output: 118.64 toks/s][A
+Processed prompts:  20%|██        | 11431/56168 [01:36<04:08, 180.01it/s, est. speed input: 34662.92 toks/s, output: 119.06 toks/s][A
+Processed prompts:  21%|██        | 11529/56168 [01:36<04:04, 182.41it/s, est. speed input: 34645.76 toks/s, output: 119.43 toks/s][A
+Processed prompts:  21%|██        | 11627/56168 [01:37<03:57, 187.91it/s, est. speed input: 34640.23 toks/s, output: 119.84 toks/s][A
+Processed prompts:  21%|██        | 11727/56168 [01:37<03:53, 190.68it/s, est. speed input: 34629.52 toks/s, output: 120.24 toks/s][A
+Processed prompts:  21%|██        | 11826/56168 [01:38<03:52, 190.86it/s, est. speed input: 34612.49 toks/s, output: 120.62 toks/s][A
+Processed prompts:  21%|██        | 11927/56168 [01:38<03:46, 195.01it/s, est. speed input: 34606.65 toks/s, output: 121.04 toks/s][A
+Processed prompts:  21%|██▏       | 12028/56168 [01:39<04:45, 154.35it/s, est. speed input: 34434.79 toks/s, output: 120.88 toks/s][A
+Processed prompts:  22%|██▏       | 12231/56168 [01:40<03:29, 210.01it/s, est. speed input: 34566.28 toks/s, output: 122.22 toks/s][A
+Processed prompts:  22%|██▏       | 12334/56168 [01:40<03:28, 209.75it/s, est. speed input: 34560.15 toks/s, output: 122.65 toks/s][A
+Processed prompts:  22%|██▏       | 12438/56168 [01:41<03:29, 208.36it/s, est. speed input: 34549.19 toks/s, output: 123.06 toks/s][A
+Processed prompts:  22%|██▏       | 12542/56168 [01:41<03:31, 206.03it/s, est. speed input: 34533.84 toks/s, output: 123.46 toks/s][A
+Processed prompts:  23%|██▎       | 12646/56168 [01:42<03:29, 207.80it/s, est. speed input: 34528.18 toks/s, output: 123.88 toks/s][A
+Processed prompts:  23%|██▎       | 12751/56168 [01:42<03:29, 206.95it/s, est. speed input: 34515.45 toks/s, output: 124.29 toks/s][A
+Processed prompts:  23%|██▎       | 12856/56168 [01:43<03:30, 205.33it/s, est. speed input: 34499.39 toks/s, output: 124.68 toks/s][A
+Processed prompts:  23%|██▎       | 12962/56168 [01:43<03:29, 205.76it/s, est. speed input: 34486.92 toks/s, output: 125.08 toks/s][A
+Processed prompts:  23%|██▎       | 13069/56168 [01:44<03:25, 209.27it/s, est. speed input: 34482.49 toks/s, output: 125.52 toks/s][A
+Processed prompts:  23%|██▎       | 13176/56168 [01:44<03:26, 207.73it/s, est. speed input: 34466.27 toks/s, output: 125.92 toks/s][A
+Processed prompts:  24%|██▎       | 13283/56168 [01:45<03:23, 210.24it/s, est. speed input: 34459.44 toks/s, output: 126.34 toks/s][A
+Processed prompts:  24%|██▍       | 13391/56168 [01:45<03:24, 208.81it/s, est. speed input: 34443.48 toks/s, output: 126.74 toks/s][A
+Processed prompts:  24%|██▍       | 13499/56168 [01:46<03:21, 211.87it/s, est. speed input: 34437.61 toks/s, output: 127.16 toks/s][A
+Processed prompts:  24%|██▍       | 13608/56168 [01:46<03:20, 212.62it/s, est. speed input: 34427.67 toks/s, output: 127.58 toks/s][A
+Processed prompts:  24%|██▍       | 13717/56168 [01:47<03:21, 210.85it/s, est. speed input: 34410.96 toks/s, output: 127.97 toks/s][A
+Processed prompts:  25%|██▍       | 13827/56168 [01:47<03:17, 214.88it/s, est. speed input: 34407.46 toks/s, output: 128.41 toks/s][A
+Processed prompts:  25%|██▍       | 13936/56168 [01:48<03:17, 214.28it/s, est. speed input: 34394.75 toks/s, output: 128.81 toks/s][A
+Processed prompts:  25%|██▌       | 14047/56168 [01:48<03:17, 213.21it/s, est. speed input: 34379.86 toks/s, output: 129.21 toks/s][A
+Processed prompts:  25%|██▌       | 14157/56168 [01:49<03:14, 215.99it/s, est. speed input: 34373.45 toks/s, output: 129.63 toks/s][A
+Processed prompts:  25%|██▌       | 14268/56168 [01:49<03:15, 213.95it/s, est. speed input: 34356.74 toks/s, output: 130.02 toks/s][A
+Processed prompts:  26%|██▌       | 14380/56168 [01:50<03:13, 215.46it/s, est. speed input: 34346.72 toks/s, output: 130.43 toks/s][A
+Processed prompts:  26%|██▌       | 14491/56168 [01:50<03:10, 218.30it/s, est. speed input: 34341.00 toks/s, output: 130.85 toks/s][A
+Processed prompts:  26%|██▌       | 14604/56168 [01:51<03:11, 217.08it/s, est. speed input: 34326.57 toks/s, output: 131.25 toks/s][A
+Processed prompts:  26%|██▌       | 14716/56168 [01:51<03:08, 219.80it/s, est. speed input: 34320.94 toks/s, output: 131.67 toks/s][A
+Processed prompts:  26%|██▋       | 14829/56168 [01:52<03:09, 217.90it/s, est. speed input: 34305.30 toks/s, output: 132.05 toks/s][A
+Processed prompts:  27%|██▋       | 14942/56168 [01:52<03:06, 221.18it/s, est. speed input: 34300.59 toks/s, output: 132.48 toks/s][A
+Processed prompts:  27%|██▋       | 15055/56168 [01:53<03:05, 221.09it/s, est. speed input: 34290.33 toks/s, output: 132.88 toks/s][A
+Processed prompts:  27%|██▋       | 15168/56168 [01:56<07:33, 90.36it/s, est. speed input: 33554.97 toks/s, output: 130.46 toks/s] [A
+Processed prompts:  28%|██▊       | 15625/56168 [01:56<02:50, 237.64it/s, est. speed input: 34083.68 toks/s, output: 134.25 toks/s][A
+Processed prompts:  28%|██▊       | 15855/56168 [01:56<02:24, 278.97it/s, est. speed input: 34215.26 toks/s, output: 135.63 toks/s][A
+Processed prompts:  28%|██▊       | 15971/56168 [01:57<02:30, 267.93it/s, est. speed input: 34207.28 toks/s, output: 136.03 toks/s][A
+Processed prompts:  29%|██▊       | 16086/56168 [01:57<02:35, 257.39it/s, est. speed input: 34196.61 toks/s, output: 136.41 toks/s][A
+Processed prompts:  29%|██▉       | 16202/56168 [01:58<02:40, 249.60it/s, est. speed input: 34187.18 toks/s, output: 136.80 toks/s][A
+Processed prompts:  29%|██▉       | 16318/56168 [01:58<02:43, 243.33it/s, est. speed input: 34177.18 toks/s, output: 137.19 toks/s][A
+Processed prompts:  29%|██▉       | 16434/56168 [01:59<02:46, 238.39it/s, est. speed input: 34166.87 toks/s, output: 137.57 toks/s][A
+Processed prompts:  29%|██▉       | 16551/56168 [01:59<02:48, 235.25it/s, est. speed input: 34156.93 toks/s, output: 137.95 toks/s][A
+Processed prompts:  30%|██▉       | 16668/56168 [02:00<02:49, 233.13it/s, est. speed input: 34147.32 toks/s, output: 138.33 toks/s][A
+Processed prompts:  30%|██▉       | 16785/56168 [02:01<02:50, 231.35it/s, est. speed input: 34137.26 toks/s, output: 138.71 toks/s][A
+Processed prompts:  30%|███       | 16903/56168 [02:01<02:50, 230.57it/s, est. speed input: 34127.73 toks/s, output: 139.09 toks/s][A
+Processed prompts:  30%|███       | 17021/56168 [02:02<02:50, 230.01it/s, est. speed input: 34117.84 toks/s, output: 139.47 toks/s][A
+Processed prompts:  31%|███       | 17138/56168 [02:02<02:50, 228.84it/s, est. speed input: 34106.46 toks/s, output: 139.84 toks/s][A
+Processed prompts:  31%|███       | 17257/56168 [02:03<02:52, 225.05it/s, est. speed input: 34088.45 toks/s, output: 140.18 toks/s][A
+Processed prompts:  31%|███       | 17375/56168 [02:03<02:47, 231.46it/s, est. speed input: 34089.03 toks/s, output: 140.60 toks/s][A
+Processed prompts:  31%|███       | 17494/56168 [02:04<02:49, 228.67it/s, est. speed input: 34074.40 toks/s, output: 140.95 toks/s][A
+Processed prompts:  31%|███▏      | 17613/56168 [02:04<02:48, 229.16it/s, est. speed input: 34064.90 toks/s, output: 141.32 toks/s][A
+Processed prompts:  32%|███▏      | 17732/56168 [02:05<02:45, 232.40it/s, est. speed input: 34060.80 toks/s, output: 141.71 toks/s][A
+Processed prompts:  32%|███▏      | 17851/56168 [02:05<02:45, 231.71it/s, est. speed input: 34050.37 toks/s, output: 142.08 toks/s][A
+Processed prompts:  32%|███▏      | 17971/56168 [02:06<03:22, 188.79it/s, est. speed input: 33935.98 toks/s, output: 142.00 toks/s][A
+Processed prompts:  32%|███▏      | 18091/56168 [02:06<02:33, 248.82it/s, est. speed input: 34031.83 toks/s, output: 142.81 toks/s][A
+Processed prompts:  32%|███▏      | 18211/56168 [02:07<02:35, 244.20it/s, est. speed input: 34023.24 toks/s, output: 143.18 toks/s][A
+Processed prompts:  33%|███▎      | 18331/56168 [02:07<02:39, 237.35it/s, est. speed input: 34007.55 toks/s, output: 143.51 toks/s][A
+Processed prompts:  33%|███▎      | 18452/56168 [02:08<02:37, 239.88it/s, est. speed input: 34005.39 toks/s, output: 143.91 toks/s][A
+Processed prompts:  33%|███▎      | 18572/56168 [02:08<02:40, 234.66it/s, est. speed input: 33990.22 toks/s, output: 144.24 toks/s][A
+Processed prompts:  33%|███▎      | 18693/56168 [02:09<02:40, 234.04it/s, est. speed input: 33980.10 toks/s, output: 144.59 toks/s][A
+Processed prompts:  33%|███▎      | 18815/56168 [02:09<02:39, 234.29it/s, est. speed input: 33970.99 toks/s, output: 144.95 toks/s][A
+Processed prompts:  34%|███▎      | 18936/56168 [02:10<02:36, 237.24it/s, est. speed input: 33967.29 toks/s, output: 145.33 toks/s][A
+Processed prompts:  34%|███▍      | 19057/56168 [02:10<02:37, 235.48it/s, est. speed input: 33956.43 toks/s, output: 145.68 toks/s][A
+Processed prompts:  34%|███▍      | 19180/56168 [02:11<02:37, 234.35it/s, est. speed input: 33944.82 toks/s, output: 146.02 toks/s][A
+Processed prompts:  34%|███▍      | 19302/56168 [02:11<02:35, 237.17it/s, est. speed input: 33940.08 toks/s, output: 146.40 toks/s][A
+Processed prompts:  35%|███▍      | 19424/56168 [02:12<02:36, 235.37it/s, est. speed input: 33928.34 toks/s, output: 146.73 toks/s][A
+Processed prompts:  35%|███▍      | 19547/56168 [02:12<02:36, 234.23it/s, est. speed input: 33916.42 toks/s, output: 147.07 toks/s][A
+Processed prompts:  35%|███▌      | 19670/56168 [02:13<02:33, 238.02it/s, est. speed input: 33912.58 toks/s, output: 147.45 toks/s][A
+Processed prompts:  35%|███▌      | 19793/56168 [02:13<02:34, 234.91it/s, est. speed input: 33898.13 toks/s, output: 147.77 toks/s][A
+Processed prompts:  35%|███▌      | 19917/56168 [02:14<02:31, 238.90it/s, est. speed input: 33894.59 toks/s, output: 148.15 toks/s][A
+Processed prompts:  36%|███▌      | 20041/56168 [02:15<03:11, 188.41it/s, est. speed input: 33770.14 toks/s, output: 147.99 toks/s][A
+Processed prompts:  36%|███▌      | 20165/56168 [02:15<02:59, 200.60it/s, est. speed input: 33760.05 toks/s, output: 148.33 toks/s][A
+Processed prompts:  36%|███▌      | 20290/56168 [02:16<02:48, 213.34it/s, est. speed input: 33756.43 toks/s, output: 148.70 toks/s][A
+Processed prompts:  36%|███▋      | 20415/56168 [02:16<02:43, 219.03it/s, est. speed input: 33744.01 toks/s, output: 149.03 toks/s][A
+Processed prompts:  37%|███▋      | 20540/56168 [02:17<02:36, 227.21it/s, est. speed input: 33739.64 toks/s, output: 149.40 toks/s][A
+Processed prompts:  37%|███▋      | 20666/56168 [02:18<02:34, 229.41it/s, est. speed input: 33727.05 toks/s, output: 149.73 toks/s][A
+Processed prompts:  37%|███▋      | 20792/56168 [02:18<02:29, 236.00it/s, est. speed input: 33723.95 toks/s, output: 150.10 toks/s][A
+Processed prompts:  37%|███▋      | 20919/56168 [02:19<02:27, 238.44it/s, est. speed input: 33716.18 toks/s, output: 150.45 toks/s][A
+Processed prompts:  37%|███▋      | 21046/56168 [02:19<02:27, 238.23it/s, est. speed input: 33704.52 toks/s, output: 150.79 toks/s][A
+Processed prompts:  38%|███▊      | 21173/56168 [02:20<02:24, 241.86it/s, est. speed input: 33699.07 toks/s, output: 151.15 toks/s][A
+Processed prompts:  38%|███▊      | 21301/56168 [02:20<02:24, 241.36it/s, est. speed input: 33687.89 toks/s, output: 151.49 toks/s][A
+Processed prompts:  38%|███▊      | 21430/56168 [02:21<02:20, 246.74it/s, est. speed input: 33686.32 toks/s, output: 151.87 toks/s][A
+Processed prompts:  38%|███▊      | 21559/56168 [02:21<02:21, 244.77it/s, est. speed input: 33674.34 toks/s, output: 152.20 toks/s][A
+Processed prompts:  39%|███▊      | 21688/56168 [02:22<02:20, 246.12it/s, est. speed input: 33667.02 toks/s, output: 152.56 toks/s][A
+Processed prompts:  39%|███▉      | 21818/56168 [02:22<02:17, 250.44it/s, est. speed input: 33664.34 toks/s, output: 152.93 toks/s][A
+Processed prompts:  39%|███▉      | 21948/56168 [02:23<02:16, 250.46it/s, est. speed input: 33656.65 toks/s, output: 153.29 toks/s][A
+Processed prompts:  39%|███▉      | 22079/56168 [02:23<02:17, 248.44it/s, est. speed input: 33644.81 toks/s, output: 153.63 toks/s][A
+Processed prompts:  40%|███▉      | 22210/56168 [02:24<02:14, 251.83it/s, est. speed input: 33640.83 toks/s, output: 154.00 toks/s][A
+Processed prompts:  40%|███▉      | 22342/56168 [02:24<02:15, 249.56it/s, est. speed input: 33628.78 toks/s, output: 154.34 toks/s][A
+Processed prompts:  40%|████      | 22474/56168 [02:25<02:12, 254.12it/s, est. speed input: 33626.27 toks/s, output: 154.72 toks/s][A
+Processed prompts:  40%|████      | 22607/56168 [02:25<02:13, 251.87it/s, est. speed input: 33614.44 toks/s, output: 155.06 toks/s][A
+Processed prompts:  40%|████      | 22740/56168 [02:26<02:10, 255.89it/s, est. speed input: 33611.24 toks/s, output: 155.43 toks/s][A
+Processed prompts:  41%|████      | 22873/56168 [02:27<02:34, 215.87it/s, est. speed input: 33530.54 toks/s, output: 155.45 toks/s][A
+Processed prompts:  41%|████      | 23008/56168 [02:30<05:42, 96.95it/s, est. speed input: 32937.96 toks/s, output: 153.10 toks/s] [A
+Processed prompts:  42%|████▏     | 23548/56168 [02:30<02:07, 255.65it/s, est. speed input: 33346.16 toks/s, output: 156.56 toks/s][A
+Processed prompts:  43%|████▎     | 23959/56168 [02:31<01:33, 344.33it/s, est. speed input: 33540.79 toks/s, output: 158.67 toks/s][A
+Processed prompts:  43%|████▎     | 24097/56168 [02:31<01:42, 313.63it/s, est. speed input: 33507.46 toks/s, output: 158.91 toks/s][A
+Processed prompts:  43%|████▎     | 24235/56168 [02:32<01:39, 319.67it/s, est. speed input: 33527.68 toks/s, output: 159.40 toks/s][A
+Processed prompts:  43%|████▎     | 24374/56168 [02:32<01:44, 305.56it/s, est. speed input: 33519.04 toks/s, output: 159.76 toks/s][A
+Processed prompts:  44%|████▎     | 24513/56168 [02:33<01:47, 295.21it/s, est. speed input: 33511.60 toks/s, output: 160.12 toks/s][A
+Processed prompts:  44%|████▍     | 24653/56168 [02:33<01:49, 287.99it/s, est. speed input: 33504.48 toks/s, output: 160.49 toks/s][A
+Processed prompts:  44%|████▍     | 24793/56168 [02:34<01:51, 282.07it/s, est. speed input: 33496.71 toks/s, output: 160.85 toks/s][A
+Processed prompts:  44%|████▍     | 24933/56168 [02:34<01:52, 278.41it/s, est. speed input: 33489.56 toks/s, output: 161.22 toks/s][A
+Processed prompts:  45%|████▍     | 25075/56168 [02:35<01:52, 276.54it/s, est. speed input: 33483.03 toks/s, output: 161.59 toks/s][A
+Processed prompts:  45%|████▍     | 25216/56168 [02:35<01:52, 274.33it/s, est. speed input: 33475.35 toks/s, output: 161.95 toks/s][A
+Processed prompts:  45%|████▌     | 25358/56168 [02:36<01:52, 273.57it/s, est. speed input: 33468.34 toks/s, output: 162.32 toks/s][A
+Processed prompts:  45%|████▌     | 25500/56168 [02:36<01:52, 272.50it/s, est. speed input: 33460.23 toks/s, output: 162.68 toks/s][A
+Processed prompts:  46%|████▌     | 25643/56168 [02:37<01:51, 273.42it/s, est. speed input: 33454.40 toks/s, output: 163.05 toks/s][A
+Processed prompts:  46%|████▌     | 25786/56168 [02:37<01:52, 270.15it/s, est. speed input: 33442.37 toks/s, output: 163.39 toks/s][A
+Processed prompts:  46%|████▌     | 25930/56168 [02:38<01:50, 274.54it/s, est. speed input: 33439.45 toks/s, output: 163.78 toks/s][A
+Processed prompts:  46%|████▋     | 26074/56168 [02:38<01:49, 274.46it/s, est. speed input: 33432.27 toks/s, output: 164.15 toks/s][A
+Processed prompts:  47%|████▋     | 26219/56168 [02:39<01:47, 278.25it/s, est. speed input: 33429.29 toks/s, output: 164.54 toks/s][A
+Processed prompts:  47%|████▋     | 26364/56168 [02:39<01:47, 277.32it/s, est. speed input: 33421.61 toks/s, output: 164.90 toks/s][A
+Processed prompts:  47%|████▋     | 26509/56168 [02:40<01:47, 277.15it/s, est. speed input: 33414.44 toks/s, output: 165.27 toks/s][A
+Processed prompts:  47%|████▋     | 26655/56168 [02:40<01:47, 275.06it/s, est. speed input: 33403.91 toks/s, output: 165.62 toks/s][A
+Processed prompts:  48%|████▊     | 26801/56168 [02:41<01:45, 278.02it/s, est. speed input: 33399.25 toks/s, output: 166.00 toks/s][A
+Processed prompts:  48%|████▊     | 26948/56168 [02:42<02:12, 220.43it/s, est. speed input: 33297.68 toks/s, output: 165.90 toks/s][A
+Processed prompts:  48%|████▊     | 27096/56168 [02:42<02:01, 238.46it/s, est. speed input: 33295.52 toks/s, output: 166.29 toks/s][A
+Processed prompts:  49%|████▊     | 27243/56168 [02:43<02:11, 219.97it/s, est. speed input: 33234.78 toks/s, output: 166.39 toks/s][A
+Processed prompts:  49%|████▉     | 27391/56168 [02:44<01:47, 268.47it/s, est. speed input: 33279.89 toks/s, output: 167.02 toks/s][A
+Processed prompts:  49%|████▉     | 27540/56168 [02:44<01:45, 270.27it/s, est. speed input: 33269.72 toks/s, output: 167.37 toks/s][A
+Processed prompts:  49%|████▉     | 27689/56168 [02:45<01:42, 276.93it/s, est. speed input: 33266.74 toks/s, output: 167.76 toks/s][A
+Processed prompts:  50%|████▉     | 27839/56168 [02:45<01:41, 279.66it/s, est. speed input: 33260.69 toks/s, output: 168.14 toks/s][A
+Processed prompts:  50%|████▉     | 27989/56168 [02:46<01:40, 279.93it/s, est. speed input: 33252.07 toks/s, output: 168.50 toks/s][A
+Processed prompts:  50%|█████     | 28139/56168 [02:46<01:39, 281.58it/s, est. speed input: 33245.34 toks/s, output: 168.87 toks/s][A
+Processed prompts:  50%|█████     | 28290/56168 [02:47<01:38, 283.38it/s, est. speed input: 33239.28 toks/s, output: 169.24 toks/s][A
+Processed prompts:  51%|█████     | 28442/56168 [02:47<01:37, 285.43it/s, est. speed input: 33233.38 toks/s, output: 169.62 toks/s][A
+Processed prompts:  51%|█████     | 28593/56168 [02:48<01:36, 285.72it/s, est. speed input: 33226.16 toks/s, output: 169.98 toks/s][A
+Processed prompts:  51%|█████     | 28746/56168 [02:49<02:00, 226.74it/s, est. speed input: 33128.04 toks/s, output: 169.89 toks/s][A
+Processed prompts:  51%|█████▏    | 28899/56168 [02:49<01:50, 246.74it/s, est. speed input: 33128.11 toks/s, output: 170.30 toks/s][A
+Processed prompts:  52%|█████▏    | 29052/56168 [02:50<01:44, 258.67it/s, est. speed input: 33122.05 toks/s, output: 170.67 toks/s][A
+Processed prompts:  52%|█████▏    | 29205/56168 [02:50<01:41, 266.91it/s, est. speed input: 33114.83 toks/s, output: 171.03 toks/s][A
+Processed prompts:  52%|█████▏    | 29360/56168 [02:51<01:38, 271.96it/s, est. speed input: 33105.35 toks/s, output: 171.39 toks/s][A
+Processed prompts:  53%|█████▎    | 29514/56168 [02:51<01:35, 279.95it/s, est. speed input: 33101.60 toks/s, output: 171.78 toks/s][A
+Processed prompts:  53%|█████▎    | 29670/56168 [02:52<01:33, 284.17it/s, est. speed input: 33095.32 toks/s, output: 172.16 toks/s][A
+Processed prompts:  53%|█████▎    | 29826/56168 [02:52<01:31, 286.76it/s, est. speed input: 33088.12 toks/s, output: 172.53 toks/s][A
+Processed prompts:  53%|█████▎    | 29982/56168 [02:53<01:30, 287.91it/s, est. speed input: 33080.15 toks/s, output: 172.89 toks/s][A
+Processed prompts:  54%|█████▎    | 30138/56168 [02:53<01:30, 287.20it/s, est. speed input: 33070.33 toks/s, output: 173.25 toks/s][A
+Processed prompts:  54%|█████▍    | 30295/56168 [02:54<01:28, 293.71it/s, est. speed input: 33067.90 toks/s, output: 173.65 toks/s][A
+Processed prompts:  54%|█████▍    | 30453/56168 [02:54<01:27, 295.02it/s, est. speed input: 33061.63 toks/s, output: 174.02 toks/s][A
+Processed prompts:  54%|█████▍    | 30611/56168 [02:55<01:26, 296.19it/s, est. speed input: 33055.38 toks/s, output: 174.40 toks/s][A
+Processed prompts:  55%|█████▍    | 30770/56168 [02:56<01:26, 294.40it/s, est. speed input: 33045.59 toks/s, output: 174.76 toks/s][A
+Processed prompts:  55%|█████▌    | 30929/56168 [02:56<01:34, 265.90it/s, est. speed input: 33001.43 toks/s, output: 174.93 toks/s][A
+Processed prompts:  55%|█████▌    | 31088/56168 [02:57<01:20, 310.68it/s, est. speed input: 33035.77 toks/s, output: 175.52 toks/s][A
+Processed prompts:  56%|█████▌    | 31248/56168 [02:57<01:20, 308.96it/s, est. speed input: 33030.32 toks/s, output: 175.91 toks/s][A
+Processed prompts:  56%|█████▌    | 31409/56168 [02:58<01:21, 304.33it/s, est. speed input: 33021.04 toks/s, output: 176.27 toks/s][A
+Processed prompts:  56%|█████▌    | 31570/56168 [02:58<01:19, 307.53it/s, est. speed input: 33018.55 toks/s, output: 176.67 toks/s][A
+Processed prompts:  56%|█████▋    | 31732/56168 [02:59<01:19, 307.21it/s, est. speed input: 33012.59 toks/s, output: 177.05 toks/s][A
+Processed prompts:  57%|█████▋    | 31894/56168 [02:59<01:19, 303.55it/s, est. speed input: 33002.89 toks/s, output: 177.41 toks/s][A
+Processed prompts:  57%|█████▋    | 32056/56168 [03:00<01:18, 307.67it/s, est. speed input: 33000.29 toks/s, output: 177.81 toks/s][A
+Processed prompts:  57%|█████▋    | 32219/56168 [03:00<01:18, 303.50it/s, est. speed input: 32989.77 toks/s, output: 178.16 toks/s][A
+Processed prompts:  58%|█████▊    | 32383/56168 [03:01<01:17, 308.80it/s, est. speed input: 32987.48 toks/s, output: 178.57 toks/s][A
+Processed prompts:  58%|█████▊    | 32547/56168 [03:01<01:17, 305.89it/s, est. speed input: 32978.29 toks/s, output: 178.93 toks/s][A
+Processed prompts:  58%|█████▊    | 32711/56168 [03:02<01:15, 310.04it/s, est. speed input: 32975.57 toks/s, output: 179.33 toks/s][A
+Processed prompts:  59%|█████▊    | 32875/56168 [03:02<01:15, 309.91it/s, est. speed input: 32969.25 toks/s, output: 179.71 toks/s][A
+Processed prompts:  59%|█████▉    | 33041/56168 [03:03<01:14, 311.28it/s, est. speed input: 32963.97 toks/s, output: 180.09 toks/s][A
+Processed prompts:  59%|█████▉    | 33206/56168 [03:04<01:14, 307.29it/s, est. speed input: 32953.68 toks/s, output: 180.45 toks/s][A
+Processed prompts:  59%|█████▉    | 33373/56168 [03:04<01:13, 312.03it/s, est. speed input: 32950.78 toks/s, output: 180.85 toks/s][A
+Processed prompts:  60%|█████▉    | 33540/56168 [03:05<01:12, 312.90it/s, est. speed input: 32944.80 toks/s, output: 181.23 toks/s][A
+Processed prompts:  60%|██████    | 33707/56168 [03:05<01:12, 310.08it/s, est. speed input: 32935.38 toks/s, output: 181.60 toks/s][A
+Processed prompts:  60%|██████    | 33874/56168 [03:06<01:10, 314.51it/s, est. speed input: 32932.42 toks/s, output: 181.99 toks/s][A
+Processed prompts:  61%|██████    | 34043/56168 [03:06<01:10, 312.07it/s, est. speed input: 32922.99 toks/s, output: 182.36 toks/s][A
+Processed prompts:  61%|██████    | 34212/56168 [03:07<01:16, 286.93it/s, est. speed input: 32887.75 toks/s, output: 182.58 toks/s][A
+Processed prompts:  61%|██████    | 34381/56168 [03:07<01:06, 326.06it/s, est. speed input: 32912.95 toks/s, output: 183.14 toks/s][A
+Processed prompts:  62%|██████▏   | 34551/56168 [03:08<01:06, 323.95it/s, est. speed input: 32907.00 toks/s, output: 183.52 toks/s][A
+Processed prompts:  62%|██████▏   | 34721/56168 [03:08<01:06, 322.27it/s, est. speed input: 32900.40 toks/s, output: 183.90 toks/s][A
+Processed prompts:  62%|██████▏   | 34892/56168 [03:09<01:06, 317.65it/s, est. speed input: 32890.47 toks/s, output: 184.27 toks/s][A
+Processed prompts:  62%|██████▏   | 35063/56168 [03:09<01:05, 322.00it/s, est. speed input: 32887.84 toks/s, output: 184.67 toks/s][A
+Processed prompts:  63%|██████▎   | 35234/56168 [03:13<03:17, 105.98it/s, est. speed input: 32272.51 toks/s, output: 181.62 toks/s][A
+Processed prompts:  64%|██████▍   | 35926/56168 [03:14<01:12, 280.75it/s, est. speed input: 32588.81 toks/s, output: 185.07 toks/s][A
+Processed prompts:  65%|██████▌   | 36625/56168 [03:14<00:44, 442.02it/s, est. speed input: 32826.41 toks/s, output: 188.09 toks/s][A
+Processed prompts:  66%|██████▌   | 36801/56168 [03:15<00:46, 420.97it/s, est. speed input: 32820.49 toks/s, output: 188.48 toks/s][A
+Processed prompts:  66%|██████▌   | 36977/56168 [03:15<00:47, 400.94it/s, est. speed input: 32813.80 toks/s, output: 188.86 toks/s][A
+Processed prompts:  66%|██████▌   | 37154/56168 [03:16<00:53, 358.31it/s, est. speed input: 32779.71 toks/s, output: 189.09 toks/s][A
+Processed prompts:  66%|██████▋   | 37332/56168 [03:17<01:00, 313.10it/s, est. speed input: 32726.66 toks/s, output: 189.20 toks/s][A
+Processed prompts:  67%|██████▋   | 37510/56168 [03:17<00:58, 320.14it/s, est. speed input: 32723.95 toks/s, output: 189.61 toks/s][A
+Processed prompts:  67%|██████▋   | 37688/56168 [03:18<00:57, 322.67it/s, est. speed input: 32717.59 toks/s, output: 189.99 toks/s][A
+Processed prompts:  67%|██████▋   | 37868/56168 [03:18<00:56, 325.39it/s, est. speed input: 32711.16 toks/s, output: 190.38 toks/s][A
+Processed prompts:  68%|██████▊   | 38048/56168 [03:19<00:55, 327.71it/s, est. speed input: 32704.87 toks/s, output: 190.77 toks/s][A
+Processed prompts:  68%|██████▊   | 38228/56168 [03:19<00:54, 329.82it/s, est. speed input: 32698.97 toks/s, output: 191.16 toks/s][A
+Processed prompts:  68%|██████▊   | 38409/56168 [03:20<00:53, 331.73it/s, est. speed input: 32693.15 toks/s, output: 191.54 toks/s][A
+Processed prompts:  69%|██████▊   | 38591/56168 [03:21<00:52, 333.43it/s, est. speed input: 32686.96 toks/s, output: 191.94 toks/s][A
+Processed prompts:  69%|██████▉   | 38773/56168 [03:21<00:51, 334.70it/s, est. speed input: 32680.84 toks/s, output: 192.33 toks/s][A
+Processed prompts:  69%|██████▉   | 38955/56168 [03:22<00:51, 335.21it/s, est. speed input: 32674.41 toks/s, output: 192.71 toks/s][A
+Processed prompts:  70%|██████▉   | 39137/56168 [03:22<00:50, 336.53it/s, est. speed input: 32668.85 toks/s, output: 193.10 toks/s][A
+Processed prompts:  70%|███████   | 39321/56168 [03:23<00:49, 338.08it/s, est. speed input: 32662.91 toks/s, output: 193.49 toks/s][A
+Processed prompts:  70%|███████   | 39505/56168 [03:23<00:54, 307.41it/s, est. speed input: 32627.11 toks/s, output: 193.71 toks/s][A
+Processed prompts:  71%|███████   | 39689/56168 [03:24<00:47, 347.83it/s, est. speed input: 32648.66 toks/s, output: 194.26 toks/s][A
+Processed prompts:  71%|███████   | 39875/56168 [03:24<00:46, 350.57it/s, est. speed input: 32645.70 toks/s, output: 194.68 toks/s][A
+Processed prompts:  71%|███████▏  | 40061/56168 [03:25<00:46, 349.61it/s, est. speed input: 32640.30 toks/s, output: 195.07 toks/s][A
+Processed prompts:  72%|███████▏  | 40247/56168 [03:25<00:45, 347.97it/s, est. speed input: 32634.13 toks/s, output: 195.47 toks/s][A
+Processed prompts:  72%|███████▏  | 40433/56168 [03:26<00:45, 345.36it/s, est. speed input: 32626.77 toks/s, output: 195.85 toks/s][A
+Processed prompts:  72%|███████▏  | 40622/56168 [03:26<00:44, 346.13it/s, est. speed input: 32620.59 toks/s, output: 196.25 toks/s][A
+Processed prompts:  73%|███████▎  | 40810/56168 [03:27<00:44, 345.18it/s, est. speed input: 32613.24 toks/s, output: 196.63 toks/s][A
+Processed prompts:  73%|███████▎  | 40998/56168 [03:28<00:44, 341.93it/s, est. speed input: 32603.79 toks/s, output: 197.01 toks/s][A
+Processed prompts:  73%|███████▎  | 41187/56168 [03:28<00:43, 347.34it/s, est. speed input: 32600.67 toks/s, output: 197.42 toks/s][A
+Processed prompts:  74%|███████▎  | 41377/56168 [03:29<00:42, 347.11it/s, est. speed input: 32593.34 toks/s, output: 197.81 toks/s][A
+Processed prompts:  74%|███████▍  | 41568/56168 [03:29<00:41, 347.97it/s, est. speed input: 32586.85 toks/s, output: 198.20 toks/s][A
+Processed prompts:  74%|███████▍  | 41758/56168 [03:30<00:44, 326.66it/s, est. speed input: 32561.60 toks/s, output: 198.48 toks/s][A
+Processed prompts:  75%|███████▍  | 41949/56168 [03:30<00:40, 354.73it/s, est. speed input: 32572.57 toks/s, output: 198.98 toks/s][A
+Processed prompts:  75%|███████▌  | 42142/56168 [03:31<00:39, 354.82it/s, est. speed input: 32566.41 toks/s, output: 199.38 toks/s][A
+Processed prompts:  75%|███████▌  | 42335/56168 [03:32<00:49, 279.46it/s, est. speed input: 32485.86 toks/s, output: 199.33 toks/s][A
+Processed prompts:  76%|███████▌  | 42528/56168 [03:32<00:46, 295.34it/s, est. speed input: 32476.32 toks/s, output: 199.70 toks/s][A
+Processed prompts:  76%|███████▌  | 42721/56168 [03:33<00:42, 312.73it/s, est. speed input: 32472.07 toks/s, output: 200.11 toks/s][A
+Processed prompts:  76%|███████▋  | 42916/56168 [03:34<00:40, 323.82it/s, est. speed input: 32464.69 toks/s, output: 200.50 toks/s][A
+Processed prompts:  77%|███████▋  | 43111/56168 [03:34<00:39, 329.89it/s, est. speed input: 32455.47 toks/s, output: 200.88 toks/s][A
+Processed prompts:  77%|███████▋  | 43306/56168 [03:35<00:37, 340.84it/s, est. speed input: 32451.93 toks/s, output: 201.29 toks/s][A
+Processed prompts:  77%|███████▋  | 43501/56168 [03:35<00:36, 345.64it/s, est. speed input: 32445.77 toks/s, output: 201.69 toks/s][A
+Processed prompts:  78%|███████▊  | 43697/56168 [03:36<00:37, 329.66it/s, est. speed input: 32422.66 toks/s, output: 201.98 toks/s][A
+Processed prompts:  78%|███████▊  | 43895/56168 [03:36<00:34, 358.31it/s, est. speed input: 32432.32 toks/s, output: 202.48 toks/s][A
+Processed prompts:  79%|███████▊  | 44092/56168 [03:37<00:33, 359.07it/s, est. speed input: 32426.08 toks/s, output: 202.88 toks/s][A
+Processed prompts:  79%|███████▉  | 44289/56168 [03:37<00:33, 355.06it/s, est. speed input: 32416.41 toks/s, output: 203.25 toks/s][A
+Processed prompts:  79%|███████▉  | 44488/56168 [03:38<00:32, 360.76it/s, est. speed input: 32412.86 toks/s, output: 203.67 toks/s][A
+Processed prompts:  80%|███████▉  | 44687/56168 [03:38<00:31, 360.58it/s, est. speed input: 32405.60 toks/s, output: 204.07 toks/s][A
+Processed prompts:  80%|███████▉  | 44887/56168 [03:39<00:31, 362.48it/s, est. speed input: 32399.85 toks/s, output: 204.47 toks/s][A
+Processed prompts:  80%|████████  | 45087/56168 [03:40<00:30, 363.22it/s, est. speed input: 32393.68 toks/s, output: 204.87 toks/s][A
+Processed prompts:  81%|████████  | 45287/56168 [03:40<00:30, 361.63it/s, est. speed input: 32385.81 toks/s, output: 205.26 toks/s][A
+Processed prompts:  81%|████████  | 45490/56168 [03:41<00:38, 280.41it/s, est. speed input: 32299.85 toks/s, output: 205.16 toks/s][A
+Processed prompts:  81%|████████▏ | 45692/56168 [03:42<00:33, 315.71it/s, est. speed input: 32307.58 toks/s, output: 205.65 toks/s][A
+Processed prompts:  82%|████████▏ | 45894/56168 [03:42<00:31, 330.95it/s, est. speed input: 32302.42 toks/s, output: 206.05 toks/s][A
+Processed prompts:  82%|████████▏ | 46096/56168 [03:43<00:29, 340.48it/s, est. speed input: 32295.61 toks/s, output: 206.45 toks/s][A
+Processed prompts:  82%|████████▏ | 46301/56168 [03:43<00:28, 348.22it/s, est. speed input: 32288.42 toks/s, output: 206.85 toks/s][A
+Processed prompts:  83%|████████▎ | 46506/56168 [03:44<00:27, 356.66it/s, est. speed input: 32283.42 toks/s, output: 207.26 toks/s][A
+Processed prompts:  83%|████████▎ | 46711/56168 [03:44<00:26, 360.86it/s, est. speed input: 32277.02 toks/s, output: 207.67 toks/s][A
+Processed prompts:  84%|████████▎ | 46915/56168 [03:45<00:25, 363.39it/s, est. speed input: 32270.35 toks/s, output: 208.06 toks/s][A
+Processed prompts:  84%|████████▍ | 47121/56168 [03:46<00:25, 348.67it/s, est. speed input: 32250.72 toks/s, output: 208.38 toks/s][A
+Processed prompts:  84%|████████▍ | 47328/56168 [03:46<00:23, 373.82it/s, est. speed input: 32257.18 toks/s, output: 208.87 toks/s][A
+Processed prompts:  85%|████████▍ | 47536/56168 [03:47<00:23, 374.98it/s, est. speed input: 32251.31 toks/s, output: 209.28 toks/s][A
+Processed prompts:  85%|████████▌ | 47743/56168 [03:47<00:22, 374.86it/s, est. speed input: 32244.86 toks/s, output: 209.68 toks/s][A
+Processed prompts:  85%|████████▌ | 47951/56168 [03:48<00:21, 374.18it/s, est. speed input: 32237.99 toks/s, output: 210.08 toks/s][A
+Processed prompts:  86%|████████▌ | 48161/56168 [03:48<00:21, 375.03it/s, est. speed input: 32231.10 toks/s, output: 210.48 toks/s][A
+Processed prompts:  86%|████████▌ | 48371/56168 [03:49<00:20, 372.03it/s, est. speed input: 32221.73 toks/s, output: 210.87 toks/s][A
+Processed prompts:  86%|████████▋ | 48581/56168 [03:49<00:20, 378.34it/s, est. speed input: 32218.24 toks/s, output: 211.29 toks/s][A
+Processed prompts:  87%|████████▋ | 48791/56168 [03:50<00:20, 364.91it/s, est. speed input: 32202.24 toks/s, output: 211.63 toks/s][A
+Processed prompts:  87%|████████▋ | 49003/56168 [03:51<00:18, 382.28it/s, est. speed input: 32204.23 toks/s, output: 212.10 toks/s][A
+Processed prompts:  88%|████████▊ | 49216/56168 [03:51<00:18, 382.85it/s, est. speed input: 32197.95 toks/s, output: 212.51 toks/s][A
+Processed prompts:  88%|████████▊ | 49429/56168 [03:52<00:17, 382.54it/s, est. speed input: 32191.23 toks/s, output: 212.92 toks/s][A
+Processed prompts:  88%|████████▊ | 49642/56168 [03:52<00:17, 381.44it/s, est. speed input: 32183.90 toks/s, output: 213.32 toks/s][A
+Processed prompts:  89%|████████▉ | 49857/56168 [03:53<00:16, 381.72it/s, est. speed input: 32176.37 toks/s, output: 213.73 toks/s][A
+Processed prompts:  89%|████████▉ | 50073/56168 [03:53<00:16, 379.58it/s, est. speed input: 32167.26 toks/s, output: 214.12 toks/s][A
+Processed prompts:  90%|████████▉ | 50288/56168 [03:54<00:15, 385.71it/s, est. speed input: 32163.35 toks/s, output: 214.55 toks/s][A
+Processed prompts:  90%|████████▉ | 50505/56168 [03:55<00:15, 375.18it/s, est. speed input: 32149.14 toks/s, output: 214.91 toks/s][A
+Processed prompts:  90%|█████████ | 50723/56168 [03:55<00:13, 390.83it/s, est. speed input: 32149.74 toks/s, output: 215.38 toks/s][A
+Processed prompts:  91%|█████████ | 50941/56168 [03:56<00:13, 390.73it/s, est. speed input: 32142.97 toks/s, output: 215.79 toks/s][A
+Processed prompts:  91%|█████████ | 51160/56168 [03:56<00:12, 391.48it/s, est. speed input: 32136.72 toks/s, output: 216.21 toks/s][A
+Processed prompts:  91%|█████████▏| 51378/56168 [03:57<00:12, 385.61it/s, est. speed input: 32126.39 toks/s, output: 216.60 toks/s][A
+Processed prompts:  92%|█████████▏| 51600/56168 [03:57<00:11, 393.46it/s, est. speed input: 32122.80 toks/s, output: 217.04 toks/s][A
+Processed prompts:  92%|█████████▏| 51821/56168 [03:58<00:11, 393.34it/s, est. speed input: 32115.64 toks/s, output: 217.46 toks/s][A
+Processed prompts:  93%|█████████▎| 52043/56168 [03:58<00:10, 386.19it/s, est. speed input: 32103.89 toks/s, output: 217.84 toks/s][A
+Processed prompts:  93%|█████████▎| 52266/56168 [03:59<00:09, 397.77it/s, est. speed input: 32102.26 toks/s, output: 218.30 toks/s][A
+Processed prompts:  93%|█████████▎| 52490/56168 [03:59<00:09, 398.27it/s, est. speed input: 32095.38 toks/s, output: 218.72 toks/s][A
+Processed prompts:  94%|█████████▍| 52715/56168 [04:00<00:08, 399.54it/s, est. speed input: 32089.07 toks/s, output: 219.15 toks/s][A
+Processed prompts:  94%|█████████▍| 52941/56168 [04:01<00:08, 395.95it/s, est. speed input: 32079.33 toks/s, output: 219.55 toks/s][A
+Processed prompts:  95%|█████████▍| 53169/56168 [04:01<00:07, 402.47it/s, est. speed input: 32074.89 toks/s, output: 220.00 toks/s][A
+Processed prompts:  95%|█████████▌| 53396/56168 [04:02<00:06, 402.69it/s, est. speed input: 32067.82 toks/s, output: 220.43 toks/s][A
+Processed prompts:  95%|█████████▌| 53626/56168 [04:02<00:06, 397.21it/s, est. speed input: 32056.45 toks/s, output: 220.83 toks/s][A
+Processed prompts:  96%|█████████▌| 53857/56168 [04:03<00:05, 404.58it/s, est. speed input: 32051.83 toks/s, output: 221.29 toks/s][A
+Processed prompts:  96%|█████████▋| 54088/56168 [04:04<00:06, 330.05it/s, est. speed input: 31988.14 toks/s, output: 221.33 toks/s][A
+Processed prompts:  97%|█████████▋| 54322/56168 [04:04<00:05, 355.41it/s, est. speed input: 31984.12 toks/s, output: 221.79 toks/s][A
+Processed prompts:  97%|█████████▋| 54556/56168 [04:09<00:13, 119.06it/s, est. speed input: 31413.59 toks/s, output: 218.32 toks/s][A
+Processed prompts:  99%|█████████▊| 55328/56168 [04:09<00:02, 282.94it/s, est. speed input: 31613.35 toks/s, output: 221.32 toks/s][A
+Processed prompts: 100%|█████████▉| 56011/56168 [04:10<00:00, 477.74it/s, est. speed input: 31780.85 toks/s, output: 223.96 toks/s][A
+Processed prompts: 100%|██████████| 56168/56168 [04:10<00:00, 477.74it/s, est. speed input: 31820.26 toks/s, output: 224.58 toks/s][AProcessed prompts: 100%|██████████| 56168/56168 [04:10<00:00, 224.58it/s, est. speed input: 31820.26 toks/s, output: 224.58 toks/s]
+Running loglikelihood requests:   0%|          | 1/56168 [04:14<3972:38:23, 254.62s/it]Running loglikelihood requests:   1%|▏         | 751/56168 [04:14<3:39:24,  4.21it/s]  Running loglikelihood requests:   3%|▎         | 1746/56168 [04:14<1:14:31, 12.17it/s]Running loglikelihood requests:   5%|▌         | 2910/56168 [04:14<34:52, 25.45it/s]  Running loglikelihood requests:   7%|▋         | 4171/56168 [04:15<18:51, 45.95it/s]Running loglikelihood requests:  10%|█         | 5622/56168 [04:15<10:35, 79.53it/s]Running loglikelihood requests:  13%|█▎        | 7273/56168 [04:15<06:05, 133.85it/s]Running loglikelihood requests:  16%|█▋        | 9196/56168 [04:15<03:30, 223.60it/s]Running loglikelihood requests:  20%|██        | 11490/56168 [04:15<01:59, 375.12it/s]Running loglikelihood requests:  25%|██▌       | 14157/56168 [04:15<01:07, 623.30it/s]Running loglikelihood requests:  30%|███       | 17044/56168 [04:15<00:39, 999.09it/s]Running loglikelihood requests:  36%|███▌      | 20083/56168 [04:15<00:23, 1547.27it/s]Running loglikelihood requests:  42%|████▏     | 23342/56168 [04:15<00:13, 2352.92it/s]Running loglikelihood requests:  48%|████▊     | 26875/56168 [04:15<00:08, 3531.84it/s]Running loglikelihood requests:  55%|█████▍    | 30678/56168 [04:16<00:04, 5208.08it/s]Running loglikelihood requests:  62%|██████▏   | 34747/56168 [04:16<00:02, 7511.05it/s]Running loglikelihood requests:  70%|██████▉   | 39101/56168 [04:16<00:01, 10568.30it/s]Running loglikelihood requests:  78%|███████▊  | 43790/56168 [04:16<00:00, 14495.17it/s]Running loglikelihood requests:  87%|████████▋ | 48869/56168 [04:16<00:00, 19350.97it/s]Running loglikelihood requests:  97%|█████████▋| 54386/56168 [04:16<00:00, 25097.90it/s]Running loglikelihood requests: 100%|██████████| 56168/56168 [04:16<00:00, 218.93it/s]  
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+/home/users/zhenyugao/.conda/envs/sjd/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+2026-02-10:14:37:55 INFO     [loggers.evaluation_tracker:247] Saving results aggregated
+2026-02-10:14:37:55 INFO     [loggers.evaluation_tracker:119] Saving per-task samples to mt_chatmodel/__data__users__zhenyugao__sjd__self_distlitation__Olmo-3-7B-Instruct/*.jsonl
+vllm ({'pretrained': '/data/users/zhenyugao/sjd/self_distlitation/Olmo-3-7B-Instruct', 'tensor_parallel_size': 2, 'dtype': 'auto', 'gpu_memory_utilization': 0.9, 'data_parallel_size': 1}), gen_kwargs: ({'until': '[<|endoftext|>]'}), limit: None, num_fewshot: None, batch_size: auto
+|                 Tasks                 |Version|Filter|n-shot|Metric|   |Value |   |Stderr|
+|---------------------------------------|------:|------|-----:|------|---|-----:|---|-----:|
+|mmlu                                   |      2|none  |      |acc   |↑  |0.4895|±  |0.0040|
+| - humanities                          |      2|none  |      |acc   |↑  |0.4497|±  |0.0069|
+|  - formal_logic                       |      1|none  |     0|acc   |↑  |0.3333|±  |0.0422|
+|  - high_school_european_history       |      1|none  |     0|acc   |↑  |0.6364|±  |0.0376|
+|  - high_school_us_history             |      1|none  |     0|acc   |↑  |0.6225|±  |0.0340|
+|  - high_school_world_history          |      1|none  |     0|acc   |↑  |0.6835|±  |0.0303|
+|  - international_law                  |      1|none  |     0|acc   |↑  |0.7025|±  |0.0417|
+|  - jurisprudence                      |      1|none  |     0|acc   |↑  |0.6111|±  |0.0471|
+|  - logical_fallacies                  |      1|none  |     0|acc   |↑  |0.6135|±  |0.0383|
+|  - moral_disputes                     |      1|none  |     0|acc   |↑  |0.5145|±  |0.0269|
+|  - moral_scenarios                    |      1|none  |     0|acc   |↑  |0.2603|±  |0.0147|
+|  - philosophy                         |      1|none  |     0|acc   |↑  |0.4534|±  |0.0283|
+|  - prehistory                         |      1|none  |     0|acc   |↑  |0.5988|±  |0.0273|
+|  - professional_law                   |      1|none  |     0|acc   |↑  |0.3677|±  |0.0123|
+|  - world_religions                    |      1|none  |     0|acc   |↑  |0.6959|±  |0.0353|
+| - other                               |      2|none  |      |acc   |↑  |0.5513|±  |0.0084|
+|  - business_ethics                    |      1|none  |     0|acc   |↑  |0.6200|±  |0.0488|
+|  - clinical_knowledge                 |      1|none  |     0|acc   |↑  |0.5434|±  |0.0307|
+|  - college_medicine                   |      1|none  |     0|acc   |↑  |0.4913|±  |0.0381|
+|  - global_facts                       |      1|none  |     0|acc   |↑  |0.2800|±  |0.0451|
+|  - human_aging                        |      1|none  |     0|acc   |↑  |0.5785|±  |0.0331|
+|  - management                         |      1|none  |     0|acc   |↑  |0.6796|±  |0.0462|
+|  - marketing                          |      1|none  |     0|acc   |↑  |0.7521|±  |0.0283|
+|  - medical_genetics                   |      1|none  |     0|acc   |↑  |0.5300|±  |0.0502|
+|  - miscellaneous                      |      1|none  |     0|acc   |↑  |0.7101|±  |0.0162|
+|  - nutrition                          |      1|none  |     0|acc   |↑  |0.5752|±  |0.0283|
+|  - professional_accounting            |      1|none  |     0|acc   |↑  |0.3369|±  |0.0282|
+|  - professional_medicine              |      1|none  |     0|acc   |↑  |0.2243|±  |0.0253|
+|  - virology                           |      1|none  |     0|acc   |↑  |0.4699|±  |0.0389|
+| - social sciences                     |      2|none  |      |acc   |↑  |0.5973|±  |0.0086|
+|  - econometrics                       |      1|none  |     0|acc   |↑  |0.3246|±  |0.0440|
+|  - high_school_geography              |      1|none  |     0|acc   |↑  |0.6919|±  |0.0329|
+|  - high_school_government_and_politics|      1|none  |     0|acc   |↑  |0.7617|±  |0.0307|
+|  - high_school_macroeconomics         |      1|none  |     0|acc   |↑  |0.4231|±  |0.0250|
+|  - high_school_microeconomics         |      1|none  |     0|acc   |↑  |0.5336|±  |0.0324|
+|  - high_school_psychology             |      1|none  |     0|acc   |↑  |0.7174|±  |0.0193|
+|  - human_sexuality                    |      1|none  |     0|acc   |↑  |0.5496|±  |0.0436|
+|  - professional_psychology            |      1|none  |     0|acc   |↑  |0.5588|±  |0.0201|
+|  - public_relations                   |      1|none  |     0|acc   |↑  |0.6000|±  |0.0469|
+|  - security_studies                   |      1|none  |     0|acc   |↑  |0.5837|±  |0.0316|
+|  - sociology                          |      1|none  |     0|acc   |↑  |0.7015|±  |0.0324|
+|  - us_foreign_policy                  |      1|none  |     0|acc   |↑  |0.7000|±  |0.0461|
+| - stem                                |      2|none  |      |acc   |↑  |0.3828|±  |0.0083|
+|  - abstract_algebra                   |      1|none  |     0|acc   |↑  |0.2100|±  |0.0409|
+|  - anatomy                            |      1|none  |     0|acc   |↑  |0.3926|±  |0.0422|
+|  - astronomy                          |      1|none  |     0|acc   |↑  |0.5263|±  |0.0406|
+|  - college_biology                    |      1|none  |     0|acc   |↑  |0.6111|±  |0.0408|
+|  - college_chemistry                  |      1|none  |     0|acc   |↑  |0.3100|±  |0.0465|
+|  - college_computer_science           |      1|none  |     0|acc   |↑  |0.3600|±  |0.0482|
+|  - college_mathematics                |      1|none  |     0|acc   |↑  |0.2300|±  |0.0423|
+|  - college_physics                    |      1|none  |     0|acc   |↑  |0.3039|±  |0.0458|
+|  - computer_security                  |      1|none  |     0|acc   |↑  |0.6100|±  |0.0490|
+|  - conceptual_physics                 |      1|none  |     0|acc   |↑  |0.4383|±  |0.0324|
+|  - electrical_engineering             |      1|none  |     0|acc   |↑  |0.3793|±  |0.0404|
+|  - elementary_mathematics             |      1|none  |     0|acc   |↑  |0.2460|±  |0.0222|
+|  - high_school_biology                |      1|none  |     0|acc   |↑  |0.6387|±  |0.0273|
+|  - high_school_chemistry              |      1|none  |     0|acc   |↑  |0.3251|±  |0.0330|
+|  - high_school_computer_science       |      1|none  |     0|acc   |↑  |0.4900|±  |0.0502|
+|  - high_school_mathematics            |      1|none  |     0|acc   |↑  |0.2296|±  |0.0256|
+|  - high_school_physics                |      1|none  |     0|acc   |↑  |0.2318|±  |0.0345|
+|  - high_school_statistics             |      1|none  |     0|acc   |↑  |0.3611|±  |0.0328|
+|  - machine_learning                   |      1|none  |     0|acc   |↑  |0.3929|±  |0.0464|
+
+|      Groups      |Version|Filter|n-shot|Metric|   |Value |   |Stderr|
+|------------------|------:|------|------|------|---|-----:|---|-----:|
+|mmlu              |      2|none  |      |acc   |↑  |0.4895|±  |0.0040|
+| - humanities     |      2|none  |      |acc   |↑  |0.4497|±  |0.0069|
+| - other          |      2|none  |      |acc   |↑  |0.5513|±  |0.0084|
+| - social sciences|      2|none  |      |acc   |↑  |0.5973|±  |0.0086|
+| - stem           |      2|none  |      |acc   |↑  |0.3828|±  |0.0083|
+
